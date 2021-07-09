@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stock Trading Competitions</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
+</head>
+<body>
+    <div class="ui one column stackable grid container">
+        <div class="column">
+            <h1 class="ui blue dividing header">Stock Trading Competitions</h1>
+            <h2 class="ui blue header">System requirements</h2>
+            <div class="ui list">
+                <div class="item">
+                    <i class="setting icon"></i>
+                    <div class="content">
+                        PHP <b>7.1.3</b> or higher.
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="setting icon"></i>
+                    <div class="content">
+                        PHP extensions: cURL, Mbstring, OpenSSL, PDO, Tokenizer, XML, Ctype, JSON, BCMath
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="setting icon"></i>
+                    <div class="content">
+                        PHP function set_time_limit() enabled.
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="setting icon"></i>
+                    <div class="content">
+                        URL rewrite enabled.
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="setting icon"></i>
+                    <div class="content">
+                        The application should be installed to the <b>web root</b> folder of a domain or sub domain (it will not work if installed to a sub folder).
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="ui blue header">Installation</h2>
+            <h3 class="ui header">Step 1</h3>
+            <p>
+                Download the application package from CodeCanyon, upload it to your server and unzip the contents of the archive to the web root folder
+                of your domain (on shared hosting environments the web root is typically named <b>public_html</b>).
+            </p>
+            <div class="ui blue message">
+                <div class="header">
+                    Note for VPS or dedicated server users
+                </div>
+                <p>
+                    If you install the application on a VPS or dedicated server please
+                    ensure that the web server (usually www-data user) has write permissions to the following folders:
+                </p>
+                <div class="ui list">
+                    <div class="item"><i class="folder icon"></i><div class="content">.. (web root)</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">bootstrap/cache</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">public</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage/app/public/assets</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage/app/public/avatars</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage/framework</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage/framework/cache</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage/framework/sessions</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage/framework/views</div></div>
+                    <div class="item"><i class="folder icon"></i><div class="content">storage/logs</div></div>
+                </div>
+                <p>
+                    The easiest way to ensure proper permission is to make www-data user owner of the above folders (and files recursively).
+                    It can be done with the following shell commands:
+                    <pre><i class="terminal icon"></i> cd /var/www/myproject</pre>
+                    <pre><i class="terminal icon"></i> chown www-data public_html</pre>
+                <pre><i class="terminal icon"></i> cd public_html</pre>
+                    <pre><i class="terminal icon"></i> chown www-data public</pre>
+                    <pre><i class="terminal icon"></i> chown -R www-data storage bootstrap/cache</pre>
+                </p>
+                <p>
+                    Please also check that <b>URL rewrite</b> is <b>enabled</b> and custom .htaccess files are allowed
+                    (<b>AllowOverride</b> directive set to <b>All</b>) in your webserver configuration.
+                    Apache web server configuration (the config file is usually located in /etc/apache2/sites-enabled/)
+                    will be similar to this:
+                </p>
+                <pre>&lt;Directory /var/www/myproject/public_html/&gt;
+    Options FollowSymLinks MultiViews
+    <b>AllowOverride All</b>
+    Order allow,deny
+    allow from all
+&lt;/Directory&gt;</pre>
+            </div>
+            <h3 class="ui header">Step 2</h3>
+            <p>Create a MySQL (or MariaDB) database on your server, as well as a database user who has all privileges for accessing and modifying it.</p>
+            <h3 class="ui header">Step 3</h3>
+            <p>
+                Run the application installation script by accessing the following URL in a web browser: <b>http://yourwebsite.com/install.php</b>
+                (substitute yourwebsite.com with your actual domain name). Follow the on-screen setup instructions to complete the installation.
+            </p>
+            <h3 class="ui header">After installation</h3>
+            <p>
+                Please make sure to add a system cron job in order to automatically execute scheduled tasks (such as market data update).
+                The system cron job parameters are provided on the last step of installation and on the <b>Maintenance</b> page in the backend.
+            </p>
+
+            <h2 class="ui blue header">Frequently Asked Questions</h2>
+            <div class="ui styled fluid accordion">
+                <div class="active title">
+                    <i class="dropdown icon"></i>
+                    I have installed the app. What's next?
+                </div>
+                <div class="active content">
+                    <p>
+                        Once the app is up and running you have everything in place to run trading competitions.
+                        Log in to the website as admin, go to the admin panel and create a new competition.
+                        Customize competition parameters (such as starting balance, lot size, leverage etc) as needed.
+                        Users who sign up to the website will then be able to join this competition and make trades.
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How do I change the default currency?
+                </div>
+                <div class="content">
+                    <p>
+                        If you like to use a currency other than USD you can choose it in the app settings (navigate to Settings page in the backend).
+                        Please note that in this case you will also need to obtain a FREE openexchangerates.org API key by signing up at
+                        <a href="https://openexchangerates.org/signup/free" target="_blank">https://openexchangerates.org/signup/free</a>.
+                        After you got the key save it in the settings ("Integration" tab).
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How often is the market data updated?
+                </div>
+                <div class="content">
+                    <p>
+                        It's updated every 10 minutes during stock exchange working hours.
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to change the website logo, OG image and favicon files?
+                </div>
+                <div class="content">
+                    <p>
+                        The website Logo and other images are located in <b>public/images</b> folder.
+                        You can just overwrite the original files with your custom ones.
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to customize translations?
+                </div>
+                <div class="content">
+                    <p>
+                        You can change translation strings for any language by editing translation files at <b>resources/lang/LANGUAGE_CODE</b>.
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Can other stock exchanges be added?
+                </div>
+                <div class="content">
+                    <p>
+                        Yes, it can be done as a custom job. Please submit a feature request at
+                        <a href="https://support.financialplugins.com/" target="_blank">support.financialplugins.com</a> to discuss.
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to upgrade the app to a new version?
+                </div>
+                <div class="content">
+                    <p>
+                    <div class="ui bulleted list">
+                        <div class="item">Download a new version from CodeCanyon and copy the <b>app</b> folder contents to your server.</div>
+                        <div class="item">Log in to the backend, open Maintenance page and click "Run database updates".</div>
+                        <div class="item">Click "Clear cache" (additionally you might also need to clear cache in your browser).</div>
+                    </div>
+                    <p>
+                        The application settings will be preserved, but please note
+                        that if you changed any of the application files you will have to apply these changes manually.
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How does bots feature work?
+                </div>
+                <div class="content">
+                    <p>
+                        Bots are users that can trade on their own without user intervention.
+                        To create bots open the <b>Users</b> page in the backend, input number of bots and click "Create bots".
+                        After bots are created you can adjust their names and add avatar pictures, so they appear more like regular users.
+                        Then on the <b>Competitions</b> page you can add any number of bots to a particular competition (they will be randomly
+                        selected from the list of available bots).
+                    </p>
+                    <p>
+                        If there are bots in a competition then every 5 minutes the app will wake them up.
+                        Every bot will open a random number of trades (min and max number of trades that can be open during each cycle can be specified in the app settings).
+                        The asset to trade will be randomly picked up from the list of top N assets (where N is a number, which can be specified in the settings).
+                        Trade direction and volume will also be randomly generated.
+                    </p>
+                    <p>
+                        Every bot will also check if there are any previously open trades whose life time exceeds the min trade life time (specified in the settings).
+                        If so the bot will close a random number of such trades (min and max number of trades that can be closed during each cycle can be specified in the app settings).
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to enable chat?
+                </div>
+                <div class="content">
+                    <p>
+                        Chat uses <a href="https://pusher.com/" rel="nofollow" target="_blank">Pusher</a> to function. In order to enable chat
+                        functionality you need to create a free account at <a href="https://pusher.com/" rel="nofollow" target="_blank">pusher.com</a>,
+                        create a new channels app and obtain its credentials (such as app ID, key, secret and cluster). After that
+                        input these credentials in the application settings in the backend (under "Integration" tab). The chat should then start
+                        working automatically.
+                    </p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to enable social login with Facebook?
+                </div>
+                <div class="content">
+                    <div class="ui bulleted list">
+                        <div class="item">
+                            Read the <a href="https://developers.facebook.com/docs/facebook-login/" target="_blank">guidelines</a>.
+                        </div>
+                        <div class="item">Ensure you have a valid SSL certificate installed on your domain (your website is accessible via HTTPS).</div>
+                        <div class="item">Create a Facebook application and add Web platform.</div>
+                        <div class="item">
+                            <p>
+                            Amongst other things please make sure to fill in <b>App domains</b> field under <b>Settings <i class="right chevron icon"></i>Basic</b>
+                            and <b>Valid OAuth Redirect URIs</b> field under <b>Facebook login <i class="right chevron icon"></i>Settings</b>. Example:
+                            </p>
+                            <img class="ui fluid image" src="assets/images/facebook_login_settings.png">
+                            <p>The paths should be the same except that you need to specify your own domain.</p>
+                        </div>
+                        <div class="item">Make the Facebook app live and obtain <b>Client ID</b> and <b>Client secret</b>.</div>
+                        <div class="item">Input <b>Client ID</b> and <b>Client secret</b> in the backend settings of the app (Integration tab).</div>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to enable social login with Google?
+                </div>
+                <div class="content">
+                    <div class="ui bulleted list">
+                        <div class="item">
+                            Read the <a href="https://developers.google.com/+/web/signin/" target="_blank">guidelines</a>.
+                        </div>
+                        <div class="item">Ensure you have a valid SSL certificate installed on your domain (your website is accessible via HTTPS).</div>
+                        <div class="item">Create a Google application and enable Google+ API for it.</div>
+                        <div class="item">Obtain <b>Client ID</b> and <b>Client secret</b>.</div>
+                        <div class="item">Input <b>Client ID</b> and <b>Client secret</b> in the backend settings of the app (Integration tab).</div>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to enable social login with Twitter?
+                </div>
+                <div class="content">
+                    <div class="ui bulleted list">
+                        <div class="item">
+                            Read the <a href="https://developers.google.com/+/web/signin/" target="_blank">guidelines</a>.
+                        </div>
+                        <div class="item">Ensure you have a valid SSL certificate installed on your domain (your website is accessible via HTTPS).</div>
+                        <div class="item">Create a Twitter application at <a href="https://apps.twitter.com/app" target="_blank">https://apps.twitter.com/app</a>.</div>
+                        <div class="item">
+                            <p>
+                                Please make sure to enable <b>Request email addresses from users</b> checkbox under <b>Permissions</b>.
+                            </p>
+                            <img class="ui fluid image" src="assets/images/twitter_login_settings.png">
+                        </div>
+                        <div class="item">Obtain <b>Client ID</b> (Consumer Key) and <b>Client secret</b> (Consumer Secret).</div>
+                        <div class="item">Input <b>Client ID</b> and <b>Client secret</b> in the backend settings of the app (Integration tab).</div>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    How to add a new static text / informational page?
+                </div>
+                <div class="content">
+                    <p>
+                        Suppose you want to add a new page called "About us", which is accessible at <b>http://yourwebsite/page/about-us</b> (please note that all static pages URLs should include "page" slug).
+                        To do so create a new template file named <b>about-us-udf.php</b> (please note that "-udf" suffix should always be present in the template file name for every custom page you add)
+                        inside <b>resources/views/pages/frontend/static</b> folder and add necessary HTML markup / content.
+                    </p>
+                    <p>
+                        Using the same technique you can override default Privacy Policy and Terms of Use pages templates by creating
+                        <b>resources/views/pages/frontend/static/privacy-policy-udf.blade.php</b> or <b>resources/views/pages/frontend/static/terms-of-use-udf.blade.php</b> template files respectively.
+                        Do not modify the original <b>privacy-policy.blade.php</b> or <b>terms-of-use.blade.php</b> files to be able to keep your custom changes after future application updates.
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="ui header">Credits</h2>
+            <div class="ui list">
+                <div class="item"><i class="code icon"></i><div class="content">PHP framework: <a href="https://laravel.com/docs/5.7" target="_blank">Laravel 5.7</a></div></div>
+                <div class="item"><i class="code icon"></i><div class="content">Front-end framework: <a href="https://semantic-ui.com" target="_blank">Semantic UI 2.4</a></div></div>
+            </div>
+
+            <h2 class="ui header">Support</h2>
+            <p>
+                If you need any assistance please submit a support ticket at <a href="https://support.financialplugins.com/" target="_blank">https://support.financialplugins.com</a>.
+            </p>
+        </div>
+    </div>
+
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+
+    <div class="ui inverted vertical segment">
+        <div class="ui container">
+            <div class="ui middle aligned stackable inverted equal height stackable grid">
+                <div class="eight wide tablet-and-below-center column">
+                    <h4 class="ui inverted header">
+                        Stock Trading Competitions
+                    </h4>
+                </div>
+                <div class="eight wide right aligned tablet-and-below-center column">
+                    <p>&copy; Built with <i class="heart blue icon"></i>by <a href="https://financialplugins.com" target="_blank">FinancialPlugins.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="vendor/semantic/semantic.min.js"></script>
+    <script>
+        $(document).ready(function ($) {
+            $('.ui.accordion').accordion();
+        });
+    </script>
+</body>
+</html>
