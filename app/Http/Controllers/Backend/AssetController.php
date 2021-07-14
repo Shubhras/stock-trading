@@ -61,14 +61,15 @@ class AssetController extends Controller
         $asset->market()->associate($request->market);
         $asset->currency()->associate($request->currency);
         $asset->symbol      = $request->symbol;
-        $asset->symbol_ext  = $request->symbol_ext;
+       $asset->symbol_ext  = $request->symbol_ext;
         $asset->name        = $request->name;
+        $asset->message        = $request->message;
         $asset->price       = $request->price;
-        $asset->change_abs  = $request->change_abs;
-        $asset->change_pct  = $request->change_pct;
-        $asset->volume      = $request->volume;
-        $asset->supply      = $request->supply;
-        $asset->market_cap  = $request->market_cap;
+       $asset->change_abs  = $request->change_abs;
+       $asset->change_pct  = $request->change_pct;
+      // $asset->volume      = $request->volume;
+      // $asset->supply      = $request->supply;
+      // $asset->market_cap  = $request->market_cap;
         $asset->status      = Asset::STATUS_ACTIVE;
 
         if ($request->hasFile('logo')) {
@@ -134,12 +135,14 @@ class AssetController extends Controller
         $asset->symbol      = $request->symbol;
         $asset->symbol_ext  = $request->symbol_ext;
         $asset->name        = $request->name;
+        $asset->message        = $request->message;
+
         $asset->price       = $request->price;
         $asset->change_abs  = $request->change_abs;
         $asset->change_pct  = $request->change_pct;
-        $asset->volume      = $request->volume;
-        $asset->supply      = $request->supply;
-        $asset->market_cap  = $request->market_cap;
+       // $asset->volume      = $request->volume;
+       // $asset->supply      = $request->supply;
+       // $asset->market_cap  = $request->market_cap;
         $asset->status      = $request->status;
 
         // logo is uploaded or updated

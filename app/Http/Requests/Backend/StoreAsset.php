@@ -24,16 +24,17 @@ class StoreAsset extends FormRequest
     public function rules()
     {
         return [
-           // 'symbol'        => 'required|string|max:30|unique:assets,symbol,NULL,id,market_id,' . $this->market, // ensure (symbol, market_id) pair is unique
-           // 'symbol_ext'    => 'required|string|max:30|unique:assets,symbol_ext',
+            'symbol'        => 'required|string|max:30|unique:assets,symbol,NULL,id,market_id,' . $this->market, // ensure (symbol, market_id) pair is unique
+           'symbol_ext'    => 'required|string|max:30|unique:assets,symbol_ext',
             'name'          => 'required|string|max:150',
+            'message'          => 'required|string',
             'logo'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price'         => 'required|numeric|min:0|max:999999999999.99999999',
-           // 'change_abs'    => 'required|numeric|min:-999999999999.99999999|max:999999999999.99999999',
-           // 'change_pct'    => 'required|numeric|min:-9999999999.99|max:9999999999.99',
-            //'volume'        => 'required|numeric|min:0|max:9223372036854775807', // bigint
-            //'supply'        => 'required|numeric|min:0|max:9223372036854775807', // bigint
-            //'market_cap'    => 'required|numeric|min:0|max:9223372036854775807', // bigint
+           'change_abs'    => 'required|numeric|min:-999999999999.99999999|max:999999999999.99999999',
+           'change_pct'    => 'required|numeric|min:-9999999999.99|max:9999999999.99',
+           // 'volume'        => 'required|numeric|min:0|max:9223372036854775807', // bigint
+           // 'supply'        => 'required|numeric|min:0|max:9223372036854775807', // bigint
+          //  'market_cap'    => 'required|numeric|min:0|max:9223372036854775807', // bigint
         ];
     }
 }

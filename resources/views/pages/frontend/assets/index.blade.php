@@ -1,8 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-<!--     {{ __('app.markets') }}
- -->Assets
+Assets
  @endsection
 
 @section('content')

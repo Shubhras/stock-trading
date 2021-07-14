@@ -10,9 +10,9 @@
             <div class="ui cards">
             <div class="ui card">
                 <div class="image">
-                    <div class="ui {{ $settings->color }} right ribbon label">
+                  <!--   <div class="ui {{ $settings->color }} right ribbon label">
                         <i class="star icon"></i> {{ __('app.rank') }} {{ $user->rank }}
-                    </div>
+                    </div> -->
                     <img src="{{ $user->avatar_url }}">
                 </div>
                 <div class="content">

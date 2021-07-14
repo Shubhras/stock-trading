@@ -7,7 +7,8 @@
 @section('content')
     <div class="ui stackable grid container">
         <div class="ten wide column">
-            <h2 class="ui {{ $settings->color }} dividing header">
+        <img src="{{ asset('images/trading.jpeg') }}" style="height: 300px;width:700px" class="image">
+            <!-- <h2 class="ui {{ $settings->color }} dividing header">
                 {{ __('app.top_traded') }}
             </h2>
             <div class="ui equal width stackable grid">
@@ -85,10 +86,10 @@
                         </div>
                     @endforeach
                 @endif
-            </div>
+            </div> -->
         </div>
         <div class="six wide column">
-            <h2 class="ui {{ $settings->color }} dividing header">
+           <!--  <h2 class="ui {{ $settings->color }} dividing header">
                 {{ __('app.top_trades') }}
             </h2>
             <div class="ui one column stackable grid">
@@ -133,9 +134,42 @@
                         </div>
                     </div>
                 @endif
+            </div> -->
+            <h2 class="ui {{ $settings->color }} dividing header">
+                {{ __('app.top_traded') }}
+            </h2>
+            <div class="ui equal width stackable grid">
+                @if($top_traded_assets->isEmpty())
+                    <div class="column">
+                        <div class="ui {{ $inverted }} segment">
+                            <p>{{ __('app.no_open_trades') }}</p>
+                        </div>
+                    </div>
+                @else
+                    @foreach($top_traded_assets->chunk(3) as $top_traded_assets_chunk)
+                        <div class="row">
+                            @foreach($top_traded_assets_chunk as $asset)
+                                <div class="center aligned column">
+                                    <div class="ui {{ $inverted }} segment">
+                                        <div class="ui small {{ $inverted }} statistic">
+                                            <img class="ui tiny centered image" src="{{ $asset->logo_url }}">
+                                            <div class="value">
+                                                {{ $asset->symbol }}
+                                            </div>
+                                            <div class="label">
+                                                {{ $asset->_trades_count }}
+                                                {{ __('app.trades') }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
+                @endif
             </div>
             <h2 class="ui {{ $settings->color }} dividing header">
-                {{ __('app.my_competitions') }}
+               <!--  {{ __('app.my_competitions') }} -->Recent Purchases
             </h2>
             <div class="ui one column stackable grid">
                 @if($my_competitions->isEmpty())
@@ -150,17 +184,20 @@
                             <tbody>
                                 @foreach($my_competitions as $competition)
                                     <tr>
+
+
                                         <td class="tablet-and-below-center">
-                                            <a href="{{ route('frontend.competitions.show', $competition) }}">
+                                           <!--  <a href="{{ route('frontend.competitions.show', $competition) }}">
                                                 {{ $competition->title }}
                                             </a>
-                                            ({{ __('app.competition_status_' . $competition->status) }})
+                                            ({{ __('app.competition_status_' . $competition->status) }}) -->
+                                            There are no open trades at the moment.
                                         </td>
                                         <td class="right aligned tablet-and-below-center">
-                                            <a class="ui small basic {{ $settings->color }} icon submit nowrap button" href="{{ route('frontend.competitions.show', $competition) }}">
+                                          <!--   <a class="ui small basic {{ $settings->color }} icon submit nowrap button" href="{{ route('frontend.competitions.show', $competition) }}">
                                                 <i class="eye icon"></i>
                                                 {{ __('app.view') }}
-                                            </a>
+                                            </a> -->
                                         </td>
                                     </tr>
                                 @endforeach

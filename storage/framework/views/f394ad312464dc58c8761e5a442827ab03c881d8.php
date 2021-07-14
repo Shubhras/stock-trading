@@ -11,10 +11,10 @@
             <div class="ui cards">
             <div class="ui card">
                 <div class="image">
-                    <div class="ui <?php echo e($settings->color); ?> right ribbon label">
+                  <!--   <div class="ui <?php echo e($settings->color); ?> right ribbon label">
                         <i class="star icon"></i> <?php echo e(__('app.rank')); ?> <?php echo e($user->rank); ?>
 
-                    </div>
+                    </div> -->
                     <img src="<?php echo e($user->avatar_url); ?>">
                 </div>
                 <div class="content">

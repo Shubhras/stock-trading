@@ -14,25 +14,25 @@
                     <image-upload-input name="logo" image-url="{{ $asset->logo_url }}" default-image-url="{{ asset('images/asset.png') }}" class="{{ $errors->has('logo') ? 'error' : '' }}" color="{{ $settings->color }}">
                         {{ __('app.logo') }}
                     </image-upload-input>
-                   <!--  <div class="field {{ $errors->has('symbol') ? 'error' : '' }}">
+                    <div class="field {{ $errors->has('symbol') ? 'error' : '' }}">
                         <label>{{ __('app.symbol') }}</label>
                         <div class="ui input">
                             <input type="text" name="symbol" placeholder="{{ __('app.symbol') }}" value="{{ old('symbol', $asset->symbol) }}" required autofocus>
                         </div>
-                    </div> -->
-                  <!--   <div class="field {{ $errors->has('symbol_ext') ? 'error' : '' }}">
+                    </div>
+                    <div class="field {{ $errors->has('symbol_ext') ? 'error' : '' }}">
                         <label>{{ __('app.symbol_ext') }}</label>
                         <div class="ui input">
                             <input type="text" name="symbol_ext" placeholder="{{ __('app.symbol_ext') }}" value="{{ old('symbol_ext', $asset->symbol_ext) }}" required autofocus>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="field {{ $errors->has('name') ? 'error' : '' }}">
                         <label>{{ __('app.name') }}</label>
                         <div class="ui input">
                             <input type="text" name="name" placeholder="{{ __('app.name') }}" value="{{ old('name', $asset->name) }}" required autofocus>
                         </div>
                     </div>
-                   <!--  <div class="field {{ $errors->has('market') ? 'error' : '' }}">
+                    <div class="field {{ $errors->has('market') ? 'error' : '' }}">
                         <label>{{ __('app.market') }}</label>
                         <div id="asset-market-dropdown" class="ui selection dropdown">
                             <input type="hidden" name="market">
@@ -44,17 +44,17 @@
                                 @endforeach
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="field {{ $errors->has('price') ? 'error' : '' }}">
                         <label>{{ __('app.price') }}</label>
                         <div class="ui input">
                             <input type="text" name="price" placeholder="{{ __('app.price') }}" value="{{ old('price', $asset->price) }}" required autofocus>
                         </div>
                     </div>
-                    <div class="field {{ $errors->has('name') ? 'error' : '' }}">
+                    <div class="field {{ $errors->has('message') ? 'error' : '' }}">
                         <label><!-- {{ __('app.name') }} -->Description</label>
                         <div class="ui input">
-                            <textarea type="text" name="name" placeholder="Message" value="{{ old('name', $asset->name) }}" required autofocus></textarea>
+                            <textarea type="text" name="message" placeholder="Message" value="" required autofocus><?php echo old('message', $asset->message)  ?></textarea>
                         </div>
                     </div>
                     <div class="field {{ $errors->has('currency') ? 'error' : '' }}">
@@ -87,14 +87,14 @@
                         <div class="ui input">
                             <input type="text" name="volume" placeholder="{{ __('app.volume') }}" value="{{ old('volume', $asset->volume) }}" required autofocus>
                         </div>
-                    </div>
-                    <div class="field {{ $errors->has('supply') ? 'error' : '' }}">
+                    </div> -->
+                 <!--    <div class="field {{ $errors->has('supply') ? 'error' : '' }}">
                         <label>{{ __('app.supply') }}</label>
                         <div class="ui input">
                             <input type="text" name="supply" placeholder="{{ __('app.supply') }}" value="{{ old('supply', $asset->supply) }}" required autofocus>
                         </div>
-                    </div>
-                    <div class="field {{ $errors->has('market_cap') ? 'error' : '' }}">
+                    </div> -->
+                   <!--  <div class="field {{ $errors->has('market_cap') ? 'error' : '' }}">
                         <label>{{ __('app.market_cap') }}</label>
                         <div class="ui input">
                             <input type="text" name="market_cap" placeholder="{{ __('app.market_cap') }}" value="{{ old('market_cap', $asset->market_cap) }}" required autofocus>

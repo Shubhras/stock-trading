@@ -24,41 +24,41 @@
                                 {{ __('app.rankings') }}
                             </a>
                             @if(config('broadcasting.connections.pusher.key'))
-                                <a href="{{ route('frontend.chat.index') }}" class="item {{ Route::currentRouteName()=='frontend.chat.index' ? 'active' : '' }}">
-                                    <i class="comments outline icon"></i>
-                                    {{ __('app.chat') }}
-                                </a>
+                            <a href="{{ route('frontend.chat.index') }}" class="item {{ Route::currentRouteName()=='frontend.chat.index' ? 'active' : '' }}">
+                                <i class="comments outline icon"></i>
+                                {{ __('app.chat') }}
+                            </a>
                             @endif
                             <a href="{{ route('frontend.help') }}" class="item {{ Route::currentRouteName()=='frontend.help' ? 'active' : '' }}">
                                 <i class="question icon"></i>
                                 {{ __('app.help') }}
                             </a>
                             @if(auth()->check())
-                                <div class="item">
-                                    <div class="text">
-                                        <img class="ui avatar image" src="{{ auth()->user()->avatar_url }}">
-                                        {{ auth()->user()->name }}
-                                    </div>
-                                    <div class="menu">
-                                        @if(auth()->user()->admin())
-                                            <a href="{{ route('backend.dashboard') }}" class="item">
-                                                <i class="setting icon"></i>
-                                                {{ __('app.backend') }}
-                                            </a>
-                                        @endif
-                                        <a href="{{ route('frontend.users.show', auth()->user()) }}" class="item">
-                                            <i class="user icon"></i>
-                                            {{ __('users.profile') }}
-                                        </a>
-
-                                        @packageview('includes.frontend.header')
-
-                                        <log-out-button token="{{ csrf_token() }}" class="item">
-                                            <i class="sign out alternate icon"></i>
-                                            {{ __('auth.logout') }}
-                                        </log-out-button>
-                                    </div>
+                            <div class="item">
+                                <div class="text">
+                                    <img class="ui avatar image" src="{{ auth()->user()->avatar_url }}">
+                                    {{ auth()->user()->name }}
                                 </div>
+                                <div class="menu">
+                                    @if(auth()->user()->admin())
+                                    <a href="{{ route('backend.dashboard') }}" class="item">
+                                        <i class="setting icon"></i>
+                                        {{ __('app.backend') }}
+                                    </a>
+                                    @endif
+                                    <a href="{{ route('frontend.users.show', auth()->user()) }}" class="item">
+                                        <i class="user icon"></i>
+                                        {{ __('users.profile') }}
+                                    </a>
+
+                                    @packageview('includes.frontend.header')
+
+                                    <log-out-button token="{{ csrf_token() }}" class="item">
+                                        <i class="sign out alternate icon"></i>
+                                        {{ __('auth.logout') }}
+                                    </log-out-button>
+                                </div>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -101,53 +101,90 @@
                         <i class="trophy icon"></i>
                         {{ __('app.competitions') }}
                     </a>
-                   
+
                     <a href="{{ route('frontend.rankings') }}" class="item {{ Route::currentRouteName()=='frontend.rankings' ? 'active' : '' }}">
                         <i class="star icon"></i>
                         {{ __('app.rankings') }}
                     </a>
                     @if(config('broadcasting.connections.pusher.key'))
-                        <a href="{{ route('frontend.chat.index') }}" class="item {{ Route::currentRouteName()=='frontend.chat.index' ? 'active' : '' }}">
-                            <i class="comments outline icon"></i>
-                            {{ __('app.chat') }}
-                        </a>
+                    <a href="{{ route('frontend.chat.index') }}" class="item {{ Route::currentRouteName()=='frontend.chat.index' ? 'active' : '' }}">
+                        <i class="comments outline icon"></i>
+                        {{ __('app.chat') }}
+                    </a>
                     @endif
                     <a href="{{ route('frontend.help') }}" class="item {{ Route::currentRouteName()=='frontend.help' ? 'active' : '' }}">
                         <i class="question icon"></i>
                     </a>
                     @if(auth()->check())
-                        <div class="right menu">
-                            <div class="ui item dropdown">
-                                <div class="text">
-                                    <img class="ui avatar image" src="{{ auth()->user()->avatar_url }}">
-                                    {{ auth()->user()->name }}
-                                </div>
-                                <i class="dropdown icon"></i>
-                                <div class="menu">
-                                    @if(auth()->user()->admin())
-                                        <a href="{{ route('backend.dashboard') }}" class="item">
-                                            <i class="setting icon"></i>
-                                            {{ __('app.backend') }}
-                                        </a>
-                                    @endif
-                                    <a href="{{ route('frontend.users.show', auth()->user()) }}" class="item">
-                                        <i class="user icon"></i>
-                                        {{ __('users.profile') }}
-                                    </a>
+                    <div class="right menu">
+                        <div class="ui item dropdown">
+                            <div class="text">
+                                <img class="ui avatar image" src="{{ auth()->user()->avatar_url }}">
+                                {{ auth()->user()->name }}
+                            </div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                @if(auth()->user()->admin())
+                                <a href="{{ route('backend.dashboard') }}" class="item">
+                                    <i class="setting icon"></i>
+                                    {{ __('app.backend') }}
+                                </a>
+                                @endif
+                                <a href="{{ route('frontend.users.show', auth()->user()) }}" class="item">
+                                    <i class="user icon"></i>
+                                    {{ __('users.profile') }}
+                                </a>
 
-                                    @packageview('includes.frontend.header')
+                                @packageview('includes.frontend.header')
 
-                                    <log-out-button token="{{ csrf_token() }}" class="item">
-                                        <i class="sign out alternate icon"></i>
-                                        {{ __('auth.logout') }}
-                                    </log-out-button>
-                                </div>
+                                <log-out-button token="{{ csrf_token() }}" class="item">
+                                    <i class="sign out alternate icon"></i>
+                                    {{ __('auth.logout') }}
+                                </log-out-button>
                             </div>
                         </div>
+                    </div>
                     @endif
                 </div>
                 <!-- END Desktop menu -->
             </div>
         </div>
     </div>
+</div>
+
+@if(auth()->user()->id !==1)
+<div style="text-align: right;">
+ <button href="#" style="margin-right: 108px;margin-top:10px;" data-toggle="modal" data-target="#RequestPoint" class="ui small basic blue icon submit nowrap button">Request Points</button>
+ </div>
+@endif
+
+<!-- Modal -->
+<div class="modal fade" id="RequestPoint" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Request Points</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+      {{csrf_field()}}
+      <div class="modal-body">
+      
+  <div class="form-group">
+    <p style="text-align: center;"><b>Request Points from site admin</b></p><br/>
+    <input type="number" style="width:200px;margin-left:140px" class="form-control" aria-describedby="emailHelp" placeholder="Enter Points"><br/>
+  </div>
+<p style="text-align: center;">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</p>
+      </div>
+       <!--   <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+      </form>
+    </div>
+  </div>
 </div>

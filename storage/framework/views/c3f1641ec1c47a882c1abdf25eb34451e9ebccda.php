@@ -18,25 +18,25 @@
                         <?php echo e(__('app.logo')); ?>
 
                     </image-upload-input>
-                   <!--  <div class="field <?php echo e($errors->has('symbol') ? 'error' : ''); ?>">
+                    <div class="field <?php echo e($errors->has('symbol') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.symbol')); ?></label>
                         <div class="ui input">
                             <input type="text" name="symbol" placeholder="<?php echo e(__('app.symbol')); ?>" value="<?php echo e(old('symbol', $asset->symbol)); ?>" required autofocus>
                         </div>
-                    </div> -->
-                  <!--   <div class="field <?php echo e($errors->has('symbol_ext') ? 'error' : ''); ?>">
+                    </div>
+                    <div class="field <?php echo e($errors->has('symbol_ext') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.symbol_ext')); ?></label>
                         <div class="ui input">
                             <input type="text" name="symbol_ext" placeholder="<?php echo e(__('app.symbol_ext')); ?>" value="<?php echo e(old('symbol_ext', $asset->symbol_ext)); ?>" required autofocus>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="field <?php echo e($errors->has('name') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.name')); ?></label>
                         <div class="ui input">
                             <input type="text" name="name" placeholder="<?php echo e(__('app.name')); ?>" value="<?php echo e(old('name', $asset->name)); ?>" required autofocus>
                         </div>
                     </div>
-                   <!--  <div class="field <?php echo e($errors->has('market') ? 'error' : ''); ?>">
+                    <div class="field <?php echo e($errors->has('market') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.market')); ?></label>
                         <div id="asset-market-dropdown" class="ui selection dropdown">
                             <input type="hidden" name="market">
@@ -48,17 +48,17 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="field <?php echo e($errors->has('price') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.price')); ?></label>
                         <div class="ui input">
                             <input type="text" name="price" placeholder="<?php echo e(__('app.price')); ?>" value="<?php echo e(old('price', $asset->price)); ?>" required autofocus>
                         </div>
                     </div>
-                    <div class="field <?php echo e($errors->has('name') ? 'error' : ''); ?>">
+                    <div class="field <?php echo e($errors->has('message') ? 'error' : ''); ?>">
                         <label><!-- <?php echo e(__('app.name')); ?> -->Description</label>
                         <div class="ui input">
-                            <textarea type="text" name="name" placeholder="Message" value="<?php echo e(old('name', $asset->name)); ?>" required autofocus></textarea>
+                            <textarea type="text" name="message" placeholder="Message" value="" required autofocus><?php echo old('message', $asset->message)  ?></textarea>
                         </div>
                     </div>
                     <div class="field <?php echo e($errors->has('currency') ? 'error' : ''); ?>">
@@ -91,14 +91,14 @@
                         <div class="ui input">
                             <input type="text" name="volume" placeholder="<?php echo e(__('app.volume')); ?>" value="<?php echo e(old('volume', $asset->volume)); ?>" required autofocus>
                         </div>
-                    </div>
-                    <div class="field <?php echo e($errors->has('supply') ? 'error' : ''); ?>">
+                    </div> -->
+                 <!--    <div class="field <?php echo e($errors->has('supply') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.supply')); ?></label>
                         <div class="ui input">
                             <input type="text" name="supply" placeholder="<?php echo e(__('app.supply')); ?>" value="<?php echo e(old('supply', $asset->supply)); ?>" required autofocus>
                         </div>
-                    </div>
-                    <div class="field <?php echo e($errors->has('market_cap') ? 'error' : ''); ?>">
+                    </div> -->
+                   <!--  <div class="field <?php echo e($errors->has('market_cap') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.market_cap')); ?></label>
                         <div class="ui input">
                             <input type="text" name="market_cap" placeholder="<?php echo e(__('app.market_cap')); ?>" value="<?php echo e(old('market_cap', $asset->market_cap)); ?>" required autofocus>
