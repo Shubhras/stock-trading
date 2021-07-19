@@ -17604,7 +17604,7 @@
 
                                         e._v(" "),
                                         n("td", { staticClass: "right aligned",style: "font-size:17px", attrs: { "data-title": e._mktcap } }, [
-                                            n("button", { staticClass: "btn btn-primary" },[e._v(e._s('Buy'))]),
+                                            n("button", { staticClass: "btn btn-primary buy__points", attrs: { 'data-assets_id' : t.id,'data-asset_symbol':t.symbol,'data-asset_price':t.price } },[e._v(e._s('Buy'))]),
                                         ]),
                                 
                                       
