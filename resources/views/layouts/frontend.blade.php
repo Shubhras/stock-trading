@@ -10,6 +10,7 @@
     <div id="app">
 
         @include('includes.frontend.header')
+        @include('includes.frontend.userrequestpoint')
 
         <div id="before-content">
             @includeWhen(config('settings.adsense_client_id') && config('settings.adsense_top_slot_id'),

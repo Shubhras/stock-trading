@@ -10,6 +10,7 @@
     <div id="app">
 
         <?php echo $__env->make('includes.frontend.header', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('includes.frontend.userrequestpoint', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <div id="before-content">
             <?php echo $__env->renderWhen(config('settings.adsense_client_id') && config('settings.adsense_top_slot_id'),

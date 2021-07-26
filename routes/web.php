@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\UserRequestPointController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,13 @@ Route::name('frontend.')
     ->namespace('Frontend')
     ->middleware('auth','active','email_verified','cookie-consent')
     ->group(function () {
+      //  Route::resource('userrequestpoint', 'UserRequestPointController');
+        Route::get('userrequestpoint','UserRequestPointController@index');
+        Route::post('userpointadd','UserRequestPointController@store');
+
+        Route::get('buytradeview','BuyController@index');
+        Route::post('buytrade','BuyController@store');
+
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
         Route::resource('users', 'UserController',  ['only' => ['show','edit','update']]);
         Route::resource('competitions', 'CompetitionController', ['only' => ['index','show']]);
