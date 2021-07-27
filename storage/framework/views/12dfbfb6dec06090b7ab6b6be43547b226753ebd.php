@@ -101,7 +101,7 @@
                         <i class="chart bar icon"></i>
                         <!-- <?php echo e(__('app.markets')); ?> -->Assets
                     </a>
-                    <a href="<?php echo e(route('frontend.assets.index')); ?>" class="item <?php echo e(Route::currentRouteName()=='frontend.assets.index' ? 'active' : ''); ?>">
+                    <a href="<?php echo e(route('frontend.transactions.index')); ?>" class="item <?php echo e(Route::currentRouteName()=='frontend.transactions.index' ? 'active' : ''); ?>">
                         <i class="dollar icon"></i>
                         <!-- <?php echo e(__('app.markets')); ?> -->Transactions
                     </a>

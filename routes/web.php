@@ -51,6 +51,8 @@ Route::name('frontend.')
         Route::get('buytradeview','BuyController@index');
         Route::post('buytrade','BuyController@store');
 
+        Route::get('transactions','TransactionController@index')->name('transactions.index');
+        
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
         Route::resource('users', 'UserController',  ['only' => ['show','edit','update']]);
         Route::resource('competitions', 'CompetitionController', ['only' => ['index','show']]);
