@@ -105,7 +105,7 @@
                         <i class="dollar icon"></i>
                         <!-- <?php echo e(__('app.markets')); ?> -->Transactions
                     </a>
-                    <a href="<?php echo e(route('frontend.assets.index')); ?>" class="item <?php echo e(Route::currentRouteName()=='frontend.assets.index' ? 'active' : ''); ?>">
+                    <a href="<?php echo e(route('frontend.wallet.index')); ?>" class="item <?php echo e(Route::currentRouteName()=='frontend.wallet.index' ? 'active' : ''); ?>">
                         <i class="money icon"></i>
                         <!-- <?php echo e(__('app.markets')); ?> -->Wallet
                     </a>

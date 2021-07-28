@@ -165,6 +165,7 @@ Assets
                     console.log(response)
                     $("#btnPointsModal").click()
                     //$("#addform1")['0'].reset();
+                    alert("Buy Request Sent");
                    location.reload();
 
                 },

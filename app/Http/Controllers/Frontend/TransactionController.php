@@ -17,7 +17,8 @@ class TransactionController extends Controller
     public function index(){
       $assets = DB::table('trades')->select('trades.*','assets.symbol as name')
       ->join('assets', 'assets.id', '=', 'trades.asset_id')
-      ->get();
+      ->orderBy('id','DESC')->paginate(10);
+     // ->get();
        // $users = DB::table('trades')->get();
         return view('pages.frontend.transactions.index',['assets'=>$assets]);
         }

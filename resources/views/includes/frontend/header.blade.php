@@ -93,7 +93,7 @@
                         <i class="dollar icon"></i>
                         <!-- {{ __('app.markets') }} -->Transactions
                     </a>
-                    <a href="{{ route('frontend.assets.index') }}" class="item {{ Route::currentRouteName()=='frontend.assets.index' ? 'active' : '' }}">
+                    <a href="{{ route('frontend.wallet.index') }}" class="item {{ Route::currentRouteName()=='frontend.wallet.index' ? 'active' : '' }}">
                         <i class="money icon"></i>
                         <!-- {{ __('app.markets') }} -->Wallet
                     </a>
