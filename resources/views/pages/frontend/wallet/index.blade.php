@@ -86,7 +86,7 @@ Wallet
                     <div class="form-group row">
                         <label for="quantity" class="col-sm-3 col-form-label">Total Value</label>
                         <div class="col-sm-6">
-                            <input type="number" name="price_close" class="form-control" id="price_close" value="">
+                            <input type="number" name="price_close" class="form-control" id="price_close" value="" required>
                         </div>
                         
                     </div>
