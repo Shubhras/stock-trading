@@ -1,8 +1,38 @@
 <IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
     RewriteEngine On
-    # It might be required so set RewriteBase on some servers,
-    # especially when a generic Internal Server Error is thrown.
-    # RewriteBase /public
-    RewriteCond %{REQUEST_URI} !^/install\.php
-    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+<IfModule mod_php5.c>
+    php_value post_max_size 100M
+    php_value upload_max_filesize 60M
+    php_value memory_limit 1000M
+    php_value max_execution_time 259200
+    php_value max_input_time 259200
+    php_value session.gc_maxlifetime 12000
+    #php_value max_allowed_packet 200M  
+</IfModule>
+<IfModule mod_php7.c>
+    php_value post_max_size 100M
+    php_value upload_max_filesize 60M
+    php_value memory_limit 1000M
+    php_value max_execution_time 259200
+    php_value max_input_time 259200
+    php_value session.gc_maxlifetime 12000
+    #php_value max_allowed_packet 200M  
 </IfModule>
