@@ -46,12 +46,16 @@ class BuyController extends Controller
             $point->user_id = $request->input('user_id');
             $point->asset_id = !empty($request->input('asset_id')) ? $request->input('asset_id'):'';
             $point->volume = $request->input('volume');
+            $point->assettype = $request->input('assettype');
+            $point->transactiontype = $request->input('transactiontype');
             $point->price_open = $request->input('assetsPrice');
             $point->price_close = ($request->input('volume'))*($request->input('assetsPrice'));
             $point->save();
             return response()->json(['user_id' =>  $request->input('user_id'), 
                                      'asset_id' => $request->input('asset_id'),
                                      'volume' =>  $request->input('volume'),
+                                     'assettype' =>  $request->input('assettype'),
+                                     'transactiontype' =>  $request->input('transactiontype'),
                                      'price_open' =>  $request->input('assetsPrice'),
                                      'price_close' =>  ($request->input('volume'))*($request->input('assetsPrice')),]);
 

@@ -2,26 +2,6 @@
 
 @section('title')
     {{ __('app.dashboard') }}
-
-
-    <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 @endsection
 
 @section('content')
@@ -173,7 +153,7 @@
                                     <div class="ui {{ $inverted }} segment">
                                         <div class="ui small {{ $inverted }} statistic">
                                             <img class="ui tiny centered image" src="{{ $asset->logo_url }}">
-                                            <div class="value">
+                                            <div class="">
                                                 {{ $asset->symbol }}
                                             </div>
                                             <div class="label">
@@ -189,7 +169,7 @@
                 @endif
             </div>
             <h2 class="ui {{ $settings->color }} dividing header">
-               <!--  {{ __('app.my_competitions') }} -->Recent Purchases
+                {{ __('app.my_competitions') }}Recent Purchases
             </h2>
             <div class="ui one column stackable grid">
                 @if($my_competitions->isEmpty())
@@ -229,8 +209,3 @@
         </div>
     </div>
 @endsection
-<script>
-    $(window).load(function(){        
-   $('#myModal').modal('show');
-    }); 
-</script>

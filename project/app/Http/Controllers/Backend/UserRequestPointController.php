@@ -31,7 +31,7 @@ class UserRequestPointController extends Controller
         $users = DB::table('users')->select('users.*','user_request_point.id as request_id','user_request_point.fund_request','user_request_point.release_fund','user_request_point.created_at','user_request_point.updated_at as last_request_point_update')
         ->join('user_request_point', 'user_request_point.user_id', '=', 'users.id')
         ->where('users.status','0')
-        ->orderBy($sort->getSortColumn(), $sort->getOrder())
+        ->orderBy('user_request_point.id' ,'DESC')
         ->get();
 
         // print_r($users);die;

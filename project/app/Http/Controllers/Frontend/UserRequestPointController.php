@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Sort\Frontend\UserRequestPoint;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Exception;
 
 class UserRequestPointController extends Controller
 {
@@ -15,6 +18,7 @@ class UserRequestPointController extends Controller
     public function index()
     {
         //
+        return view('includes.frontend.userrequestpoint');
     }
 
     /**
@@ -35,7 +39,19 @@ class UserRequestPointController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $point = new UserRequestPoint;
+            $point->user_id=$request->input('user_id');
+            $point->name=$request->input('name');
+            $point->email=$request->input('email');
+            $point->status=$request->input('status');
+            $point->fund_request = $request->input('fund_request');
+            $point->updated_at = NULL;
+  
+            $point->save();
+        } catch (Exception $e) {
+            echo $e;
+        }
     }
 
     /**

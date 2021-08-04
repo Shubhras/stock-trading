@@ -83,6 +83,8 @@ Assets
                         <label for="quantity" class="col-sm-3 col-form-label">Quantity</label>
                         <div class="col-sm-4">
                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                            <input type="hidden" name="assettype" value="Buy">
+                            <input type="hidden" name="transactiontype" value="paid">
                             <input type="hidden" id="asset_id" name="asset_id" value="">
                             <input type="hidden" name="price_open" id="price_open">
                             <input type="hidden" name="assetsPrice" id="assetsPrice">
