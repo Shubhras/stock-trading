@@ -226,4 +226,40 @@ class User extends Authenticatable implements EnumUserRole, EnumUserStatus, Must
             }
         }
     }
+
+
+    public function getUserRequestPoint() {
+        // check if ranks exist in cache
+        /*if (!$userRanks = Cache::get('ranks')) {
+            $userRanks = User::selectRaw('users.id, SUM(points) AS points')
+                ->where('status', User::STATUS_ACTIVE)
+                ->leftJoin('user_points', 'user_points.user_id', '=', 'users.id')
+                ->groupBy('users.id')
+                ->orderBy('points', 'desc')
+                ->orderBy('id', 'asc')
+                ->get()
+                ->mapWithKeys(function ($row, $key) {
+                    return [$row['id'] => $key+1];
+                })
+                ->toArray();
+
+            // store ranks in cache
+            Cache::put('ranks', $userRanks, now()->addMinutes(config('app.cache_time_ranks')));
+        }*/
+
+        $userRequestPoint = User::selectRaw('users.id, SUM(points) AS points')
+            ->where('status', User::STATUS_ACTIVE)
+            ->leftJoin('user_request_point', 'user_request_point.user_id', '=', 'users.id')
+            ->groupBy('users.id')
+            ->orderBy('points', 'desc')
+            ->orderBy('id', 'asc')
+            ->get()
+            ->mapWithKeys(function ($row, $key) {
+                return [$row['id'] => $key+1];
+            })
+            ->toArray();
+
+        return $userRequestPoint[$this->id];
+    }
+
 }

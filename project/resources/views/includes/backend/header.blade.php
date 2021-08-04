@@ -26,6 +26,11 @@
         <i class="users icon"></i>
     </a>
 
+    <a href="{{ route('backend.users_request_point.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.users_request_point.')!==FALSE ? ' active' : '' }}">
+        {{ __('Users Request Point') }}
+        <i class="users icon"></i>
+    </a>
+    
     @packageview('includes.backend.header')
 
     <a href="{{ route('backend.addons.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.addons.')!==FALSE ? ' active' : '' }}">

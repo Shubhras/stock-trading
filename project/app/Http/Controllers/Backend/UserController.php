@@ -55,6 +55,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        // print_r($user);die;
         return view('pages.backend.users.edit', ['user' => $user]);
     }
 

@@ -3,6 +3,26 @@
 <?php $__env->startSection('title'); ?>
     <?php echo e(__('app.dashboard')); ?>
 
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -230,4 +250,9 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+<script>
+    $(window).load(function(){        
+   $('#myModal').modal('show');
+    }); 
+</script>
 <?php echo $__env->make('layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

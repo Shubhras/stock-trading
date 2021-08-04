@@ -146,4 +146,5 @@ Route::prefix('admin')
         Route::post('maintenance/cron/currencies-market-data', 'MaintenanceController@cronCurrenciesMarketData')->name('maintenance.cron_currencies_market_data');
         Route::get('license', 'LicenseController@index')->name('license.index');
         Route::post('license', 'LicenseController@register')->name('license.register');
+        Route::resource('users_request_point', 'UserRequestPointController',  ['except' => ['create','store','show']]);
 });
