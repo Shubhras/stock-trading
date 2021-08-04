@@ -109,6 +109,10 @@
                         <i class="money icon"></i>
                         <!-- <?php echo e(__('app.markets')); ?> -->Wallet
                     </a>
+                    <a href="<?php echo e(route('frontend.myassets.index')); ?>" class="item <?php echo e(Route::currentRouteName()=='frontend.myassets.index' ? 'active' : ''); ?>">
+                        <i class="briefcase icon"></i>
+                        <!-- <?php echo e(__('app.markets')); ?> -->My Assets
+                    </a>
                     <a href="<?php echo e(route('frontend.competitions.index')); ?>" class="item <?php echo e(strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : ''); ?>">
                         <i class="trophy icon"></i>
                         <?php echo e(__('app.competitions')); ?>

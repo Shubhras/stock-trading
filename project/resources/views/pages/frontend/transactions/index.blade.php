@@ -21,9 +21,9 @@
                       
                         <th>Assets</th>
                         <th>Buy/Sell</th>
-                        <th>Price</th>
                         <th>Quantity</th>
-                        <th>Amount</th>
+                        <th>Amount</th> 
+                        <th>Total Amount</th>
                         <th>Date</th>
                     </tr>
                     </thead>
@@ -33,10 +33,11 @@
                   foreach($assets as $asset) { ?>
                         <tr>
                             <td><?php echo  $asset->name ;?></td>
+                            <td><?php echo  $asset->assettype ;?></td>
                             <td><?php echo  $asset->volume ;?></td>
-                            <td><?php echo  $asset->price_open ;?></td>
-                            <td><?php echo  $asset->volume ;?></td>
-                            <td><?php echo  $asset->price_close ;?></td>
+                            <td>$ <?php echo  $asset->price_open ;?></td>
+                          
+                            <td>$ <?php echo  $asset->price_close ;?></td>
                             <td><?php echo  $asset->created_at ;?></td>
                         </tr>
                   <?php } ?>

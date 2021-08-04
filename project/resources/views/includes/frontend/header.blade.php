@@ -97,6 +97,10 @@
                         <i class="money icon"></i>
                         <!-- {{ __('app.markets') }} -->Wallet
                     </a>
+                    <a href="{{ route('frontend.myassets.index') }}" class="item {{ Route::currentRouteName()=='frontend.myassets.index' ? 'active' : '' }}">
+                        <i class="briefcase icon"></i>
+                        <!-- {{ __('app.markets') }} -->My Assets
+                    </a>
                     <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
                         <i class="trophy icon"></i>
                         {{ __('app.competitions') }}

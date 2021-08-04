@@ -1,6 +1,4 @@
 <?php
-use App\Http\Controllers\UserRequestPointController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +51,12 @@ Route::name('frontend.')
 
         Route::get('transactions','TransactionController@index')->name('transactions.index');
         Route::get('wallet','WalletController@index')->name('wallet.index');
+        Route::get('myassets','MyAssetsController@index')->name('myassets.index');
+
+        
+
+       Route::post('sellasset','WalletController@update');
+        // Route::resource('sellasset', 'WalletController@update',  ['except' => ['index']]);
 
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
         Route::resource('users', 'UserController',  ['only' => ['show','edit','update']]);
