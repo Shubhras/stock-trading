@@ -4,10 +4,19 @@
     {{ __('app.dashboard') }}
 @endsection
 
+
+
 @section('content')
+
+<!-- @if(Session::get('status'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+{{ Session::get('status')}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif -->
     <div class="ui stackable grid container">
         <div class="ten wide column">
-        <img src="{{ asset('images/trading.jpeg') }}" style="height: 300px;width:700px" class="image">
+        <img src="{{ asset('images/trading.jpeg') }}" style="height: 100%;width:100%" class="image">
             <!-- <h2 class="ui {{ $settings->color }} dividing header">
                 {{ __('app.top_traded') }}
             </h2>
@@ -123,7 +132,7 @@
                                         </div>
                                         <div class="content">
                                             <span class="ui right pointing {{ $settings->color }} basic label">{{ __('app.profit') }}</span>
-                                            <span class="tooltip" data-tooltip="{{ __('app.open_price') }}: {{ $top_trade->_price_open }}, {{ __('app.close_price') }}: {{ $top_trade->_price_close }}" {{ $inverted ? 'data-inverted="false"' : '' }}>
+                                            <span class="tooltip" data-tooltip="{{ _('app.open_price') }}: {{ $top_trade->_price_open }}, {{ _('app.close_price') }}: {{ $top_trade->_price_close }}" {{ $inverted ? 'data-inverted="false"' : '' }}>
                                                 {{ $top_trade->_pnl }} {{ $top_trade->currency->code }}
                                             </span>
                                         </div>
@@ -168,42 +177,36 @@
                     @endforeach
                 @endif
             </div>
+           
+
             <h2 class="ui {{ $settings->color }} dividing header">
-                {{ __('app.my_competitions') }}Recent Purchases
+                <!-- {{ __('app.top_traded') }} -->Recent Treades
             </h2>
-            <div class="ui one column stackable grid">
-                @if($my_competitions->isEmpty())
+            <div class="ui equal width stackable grid">
+                @if($recent_TradedAssets->isEmpty())
                     <div class="column">
                         <div class="ui {{ $inverted }} segment">
-                            <p>{{ __('app.no_competitions_joined') }}</p>
+                            <p><!-- {{ __('app.no_open_trades') }} -->No recent trade yet.</p>
                         </div>
                     </div>
                 @else
-                    <div class="column">
-                        <table class="ui basic {{ $inverted }} table">
-                            <tbody>
-                                @foreach($my_competitions as $competition)
-                                    <tr>
-
-
-                                        <td class="tablet-and-below-center">
-                                           <!--  <a href="{{ route('frontend.competitions.show', $competition) }}">
-                                                {{ $competition->title }}
-                                            </a>
-                                            ({{ __('app.competition_status_' . $competition->status) }}) -->
-                                            There are no open trades at the moment.
-                                        </td>
-                                        <td class="right aligned tablet-and-below-center">
-                                          <!--   <a class="ui small basic {{ $settings->color }} icon submit nowrap button" href="{{ route('frontend.competitions.show', $competition) }}">
-                                                <i class="eye icon"></i>
-                                                {{ __('app.view') }}
-                                            </a> -->
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    @foreach($recent_TradedAssets->chunk(3) as $recent_TradedAssets_chunk)
+                        <div class="column">
+                        <!--     @foreach($recent_TradedAssets_chunk as $assets) -->
+                                <div class="center aligned column">
+                                    <!-- <div class="ui {{ $inverted }} segment">
+                                        <div class="ui small {{ $inverted }} statistic"> -->
+                                          <li>
+                                         <!--    <div class=""> -->
+                                                {{ $assets->name }}
+                                         <!-- </div> -->
+                                           </li>
+                                     <!-- </div>
+                                    </div> -->
+                                </div>
+                           <!--  @endforeach -->
+                        </div>
+                    @endforeach
                 @endif
             </div>
         </div>

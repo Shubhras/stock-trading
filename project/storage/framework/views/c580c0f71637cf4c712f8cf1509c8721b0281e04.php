@@ -5,10 +5,20 @@
 
 <?php $__env->stopSection(); ?>
 
+
+
 <?php $__env->startSection('content'); ?>
+
+<!-- <?php if(Session::get('status')): ?>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+<?php echo e(Session::get('status')); ?>
+
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<?php endif; ?> -->
     <div class="ui stackable grid container">
         <div class="ten wide column">
-        <img src="<?php echo e(asset('images/trading.jpeg')); ?>" style="height: 300px;width:700px" class="image">
+        <img src="<?php echo e(asset('images/trading.jpeg')); ?>" style="height: 100%;width:100%" class="image">
             <!-- <h2 class="ui <?php echo e($settings->color); ?> dividing header">
                 <?php echo e(__('app.top_traded')); ?>
 
@@ -137,7 +147,7 @@
                                         </div>
                                         <div class="content">
                                             <span class="ui right pointing <?php echo e($settings->color); ?> basic label"><?php echo e(__('app.profit')); ?></span>
-                                            <span class="tooltip" data-tooltip="<?php echo e(__('app.open_price')); ?>: <?php echo e($top_trade->_price_open); ?>, <?php echo e(__('app.close_price')); ?>: <?php echo e($top_trade->_price_close); ?>" <?php echo e($inverted ? 'data-inverted="false"' : ''); ?>>
+                                            <span class="tooltip" data-tooltip="<?php echo e(_('app.open_price')); ?>: <?php echo e($top_trade->_price_open); ?>, <?php echo e(_('app.close_price')); ?>: <?php echo e($top_trade->_price_close); ?>" <?php echo e($inverted ? 'data-inverted="false"' : ''); ?>>
                                                 <?php echo e($top_trade->_pnl); ?> <?php echo e($top_trade->currency->code); ?>
 
                                             </span>
@@ -187,44 +197,37 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 <?php endif; ?>
             </div>
+           
+
             <h2 class="ui <?php echo e($settings->color); ?> dividing header">
-                <?php echo e(__('app.my_competitions')); ?>Recent Purchases
+                <!-- <?php echo e(__('app.top_traded')); ?> -->Recent Treades
             </h2>
-            <div class="ui one column stackable grid">
-                <?php if($my_competitions->isEmpty()): ?>
+            <div class="ui equal width stackable grid">
+                <?php if($recent_TradedAssets->isEmpty()): ?>
                     <div class="column">
                         <div class="ui <?php echo e($inverted); ?> segment">
-                            <p><?php echo e(__('app.no_competitions_joined')); ?></p>
+                            <p><!-- <?php echo e(__('app.no_open_trades')); ?> -->No recent trade yet.</p>
                         </div>
                     </div>
                 <?php else: ?>
-                    <div class="column">
-                        <table class="ui basic <?php echo e($inverted); ?> table">
-                            <tbody>
-                                <?php $__currentLoopData = $my_competitions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $competition): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
+                    <?php $__currentLoopData = $recent_TradedAssets->chunk(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recent_TradedAssets_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="column">
+                        <!--     <?php $__currentLoopData = $recent_TradedAssets_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $assets): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> -->
+                                <div class="center aligned column">
+                                    <!-- <div class="ui <?php echo e($inverted); ?> segment">
+                                        <div class="ui small <?php echo e($inverted); ?> statistic"> -->
+                                          <li>
+                                         <!--    <div class=""> -->
+                                                <?php echo e($assets->name); ?>
 
-
-                                        <td class="tablet-and-below-center">
-                                           <!--  <a href="<?php echo e(route('frontend.competitions.show', $competition)); ?>">
-                                                <?php echo e($competition->title); ?>
-
-                                            </a>
-                                            (<?php echo e(__('app.competition_status_' . $competition->status)); ?>) -->
-                                            There are no open trades at the moment.
-                                        </td>
-                                        <td class="right aligned tablet-and-below-center">
-                                          <!--   <a class="ui small basic <?php echo e($settings->color); ?> icon submit nowrap button" href="<?php echo e(route('frontend.competitions.show', $competition)); ?>">
-                                                <i class="eye icon"></i>
-                                                <?php echo e(__('app.view')); ?>
-
-                                            </a> -->
-                                        </td>
-                                    </tr>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                         <!-- </div> -->
+                                           </li>
+                                     <!-- </div>
+                                    </div> -->
+                                </div>
+                           <!--  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> -->
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 <?php endif; ?>
             </div>
         </div>

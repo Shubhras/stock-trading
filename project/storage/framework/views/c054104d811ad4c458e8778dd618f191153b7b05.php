@@ -173,7 +173,7 @@ Assets
                 },
                 error: function(error) {
                     console.log(error)
-                    alert("Buy Request Not sent");
+                    alert("Request Can Not be send due to insufficient points.");
                 }
             });
         });

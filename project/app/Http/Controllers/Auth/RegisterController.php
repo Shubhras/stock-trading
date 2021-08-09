@@ -91,6 +91,8 @@ class RegisterController extends Controller
             return redirect($this->redirectPath())->with('success', __('auth.email_verification_notice'));
         }
 
+        $request->session()->flash('status','Welcome to Symphony!! Point worth $5000 added to your account. Happy Trading!!!');
+
         return FALSE;
     }
 }

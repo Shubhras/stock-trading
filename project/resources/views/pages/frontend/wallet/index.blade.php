@@ -24,34 +24,59 @@ Wallet
                     <th>Transaction Type</th>
                     <th>Quantity</th>
                     <th>Cost</th>
-                    <th>% gain / Loss</th>
+                    <!-- <th>Total Buy Cost</th> -->
+                    <th>Total Sell Cost</th>
+                    <th>% Gain / Loss</th>
                     <th>Date</th>
-                    <th>Sell Assets</th>
+                    <!-- <th>Sell Assets</th> -->
                 </tr>
             </thead>
             <tbody>
                 <?php
                 //  print_r($users);die;
-                foreach ($assets as $asset) { ?>
-                    <tr>
+                foreach ($assets as $asset) { 
+                    // print_r($asset);die;
+              
+                $profit = $asset->gain_loss;
+                    if($profit < 0){
+
+                    
+                    ?>
+                    <tr >
                         <!-- <td><?php //echo  $asset->id ;
                                     ?></td> -->
                         <td><?php echo  $asset->name; ?></td>
-                        <td><?php echo  $asset->transactiontype; ?></td>
-                        <td><?php echo  $asset->volume; ?></td>
-                        <td>$ <?php echo  $asset->price_open; ?></td>
-                        <td>$ <?php echo  $asset->price_close; ?></td>
+                        <td><?php echo  $asset->status; ?></td>
+                        <td><?php echo  $asset->quantity; ?></td>
+                        <td>$ <?php echo  $asset->cost; ?></td>
+                        <!-- <td>$ <?php //echo  $asset->total_buy_cost; ?></td> -->
+                        <td>$ <?php echo  $asset->total_sell_cost; ?></td>
+                        
+                        <td style="color:red"><?php echo  $asset->gain_loss; ?> %</td>
+                        
                         <td><?php echo  $asset->created_at; ?></td>
-                        <?php if($asset->transactiontype =='paid'){?>
-                        <td style="text-align: center;"><button onclick="sellAssets(this)" data-toggle="modal" id="btnPointsModal"  data-target="#sellAsset" class="btn btn-primary sell__points" data-asset-id="{{ $asset->id}}"> Sell</button>
-                        </td>
-                        <?php }else{?>
-                            <td style="text-align: center;">
-                        </td>
-                            <?php }?>
+                        
 
                     </tr>
-                <?php } ?>
+                    <?php }else{?>
+
+                        <tr >
+                        <!-- <td><?php //echo  $asset->id ;
+                                    ?></td> -->
+                        <td><?php echo  $asset->name; ?></td>
+                        <td><?php echo  $asset->status; ?></td>
+                        <td><?php echo  $asset->quantity; ?></td>
+                        <td>$ <?php echo  $asset->cost; ?></td>
+                        <!-- <td>$ <?php //echo  $asset->total_buy_cost; ?></td> -->
+                        <td>$ <?php echo  $asset->total_sell_cost; ?></td>
+                        
+                        <td style="color:green"><?php echo  $asset->gain_loss; ?> %</td>
+                        
+                        <td><?php echo  $asset->created_at; ?></td>
+                        
+
+                    </tr>
+                <?php }  } ?>
             </tbody>
         </table>
 

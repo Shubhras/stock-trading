@@ -12,11 +12,12 @@ class WalletController extends Controller
     //
     public function index()
     {
-        $assets = DB::table('trades')->select('trades.*','assets.symbol as name')
-        ->join('assets', 'assets.id', '=', 'trades.asset_id')
+        $assets = DB::table('wallets')->select('wallets.*','assets.symbol as name')
+        ->join('assets', 'assets.id', '=', 'wallets.asset_id')
         ->orderBy('id','DESC')->paginate(10);
        // ->get();
          // $users = DB::table('trades')->get();
+        //  print_r($assets);die;
           return view('pages.frontend.wallet.index',['assets'=>$assets]);
     }
 

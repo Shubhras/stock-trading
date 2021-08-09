@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Trade;
+use App\Models\Asset;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Exception;
+use DB;
 
 class BuyController extends Controller
 {
@@ -41,6 +43,74 @@ class BuyController extends Controller
     {
         //
         // print_r($request->all());die;
+        $user_id = $request->input('user_id');
+
+        $asset_id = $request->input('asset_id');
+
+        $user_current_wallet= DB::table('users')->select('users.wallet_balance')->where('id', $user_id)->first();
+
+          $user_wallet_balance = $user_current_wallet->wallet_balance;
+
+          $quenty = $request->input('volume');
+          
+          $totalPrice = $request->input('assetsPrice');
+
+          $totalAssetPrice = $quenty  * $totalPrice;
+          
+
+         $totalAssetsPriceUser =  $user_wallet_balance - $totalAssetPrice;
+         
+         if($user_wallet_balance  >= $totalAssetPrice){
+
+           
+
+
+        $price = 2.5;
+
+        $asset_idData = DB::table('assets')->select('assets.*')
+            ->where('assets.id',$asset_id)
+            ->first();
+            $oldPrice = $asset_idData->price;
+
+           $totalpricePer= $oldPrice * 2.5;
+          $totalChange= $totalpricePer/100;
+
+            $totalPrice = $oldPrice + $totalChange;
+
+        $update_request_point = DB::table('assets')->where('id', $asset_id)->update(['price' => $totalPrice, 'change_pct' => $price ,'change_abs' => $totalChange]);
+
+        // print_r($totalAssetsPriceUser);die;
+
+       $user_wallet =  DB::table('users')->where('id', $user_id)->update(['wallet_balance' => $totalAssetsPriceUser]);
+
+            $myWalletArray = array(
+                'user_id' =>$request->input('user_id'),
+                'asset_id' => $request->input('asset_id'),
+                'status' => $request->input('transactiontype'),
+                'quantity' => $request->input('volume'),
+                'cost' => $request->input('assetsPrice'),
+                'total_buy_cost' => $totalAssetPrice,
+                // 'gain_loss' => $request->input('asset_id'),
+                // 'total_sell_cost' => $request->input('asset_id'),
+                'created_at' => now(),
+
+
+            );
+        //  }
+        $wallet=  DB::table('wallets')->insert([
+            'user_id' =>$request->input('user_id'),
+                'asset_id' => $request->input('asset_id'),
+                'status' => $request->input('transactiontype'),
+                'quantity' => $request->input('volume'),
+                'cost' => $request->input('assetsPrice'),
+                'total_buy_cost' => $totalAssetPrice,
+                // 'gain_loss' => $request->input('asset_id'),
+                // 'total_sell_cost' => $request->input('asset_id'),
+                'created_at' => now(),
+        ]);        
+             
+
+
         try {
             $point = new Trade;
             $point->user_id = $request->input('user_id');
@@ -63,6 +133,10 @@ class BuyController extends Controller
             echo $e;
             return response()->json(['e' => $e]);
         }
+    }else{
+            return response()->error('point not sufficent');
+        }
+    
     }
 
     /**

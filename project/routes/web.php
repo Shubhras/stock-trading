@@ -53,7 +53,8 @@ Route::name('frontend.')
         Route::get('wallet','WalletController@index')->name('wallet.index');
         Route::get('myassets','MyAssetsController@index')->name('myassets.index');
 
-        
+        Route::post('sellasset','WalletController@update');
+       Route::post('sellmyasset','MyAssetsController@update');
 
        Route::post('sellasset','WalletController@update');
         // Route::resource('sellasset', 'WalletController@update',  ['except' => ['index']]);

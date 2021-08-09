@@ -30,8 +30,12 @@
                     <tbody>
                     <?php
                   //  print_r($users);die;
-                  foreach($assets as $asset) { ?>
-                        <tr>
+                  foreach($assets as $asset) { 
+
+                    if($asset->assettype == "Buy"){
+                      
+                      ?>
+                        <tr style="color:red">
                             <td><?php echo  $asset->name ;?></td>
                             <td><?php echo  $asset->assettype ;?></td>
                             <td><?php echo  $asset->volume ;?></td>
@@ -40,7 +44,18 @@
                             <td>$ <?php echo  $asset->price_close ;?></td>
                             <td><?php echo  $asset->created_at ;?></td>
                         </tr>
-                  <?php } ?>
+                        <?php }else{
+                            ?>
+                            <tr style="color:green">
+                            <td><?php echo  $asset->name ;?></td>
+                            <td><?php echo  $asset->assettype ;?></td>
+                            <td><?php echo  $asset->volume ;?></td>
+                            <td>$ <?php echo  $asset->price_open ;?></td>
+                          
+                            <td>$ <?php echo  $asset->price_close ;?></td>
+                            <td><?php echo  $asset->created_at ;?></td>
+                        </tr>
+                  <?php } }?>
                     </tbody>
                 </table>
            

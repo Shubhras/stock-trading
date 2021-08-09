@@ -15,7 +15,7 @@ class TransactionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-      $assets = DB::table('trades')->select('trades.*','assets.symbol as name')
+      $assets = DB::table('trades')->select('trades.*','assets.name')
       ->join('assets', 'assets.id', '=', 'trades.asset_id')
       ->orderBy('id','DESC')->paginate(10);
      // ->get();
