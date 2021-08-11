@@ -15,7 +15,7 @@ Assets
     </div>
     @else
     @if($markets->count() > 1)
-    <div class="five wide column">
+   <!--  <div class="five wide column">
         <div id="market-dropdown" class="ui selection fluid dropdown">
             <i class="dropdown icon"></i>
             <div class="default text"></div>
@@ -25,7 +25,7 @@ Assets
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> -->
     @endif
     <div class="sixteen wide column">
         <assets-table :assets-list="{{ $assets->getCollection() }}" class="ui selectable {{ $inverted }} table">

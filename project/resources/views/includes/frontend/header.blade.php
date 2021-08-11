@@ -78,9 +78,9 @@
                     </a>
                 </h4>
             </div>
-            <div class="right aligned column">
+          <!--   <div class="right aligned column">
                 <locale-select :locales="{{ json_encode($locale->locales()) }}" :locale="{{ json_encode($locale->locale()) }}"></locale-select>
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="tablet only computer only column">
@@ -106,7 +106,7 @@
                         <i class="briefcase icon"></i>
                         <!-- {{ __('app.markets') }} -->My Assets
                     </a>
-                    <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
+                   <!--  <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
                         <i class="trophy icon"></i>
                         {{ __('app.competitions') }}
                     </a>
@@ -114,7 +114,7 @@
                     <a href="{{ route('frontend.rankings') }}" class="item {{ Route::currentRouteName()=='frontend.rankings' ? 'active' : '' }}">
                         <i class="star icon"></i>
                         {{ __('app.rankings') }}
-                    </a>
+                    </a> -->
                     @if(config('broadcasting.connections.pusher.key'))
                     <a href="{{ route('frontend.chat.index') }}" class="item {{ Route::currentRouteName()=='frontend.chat.index' ? 'active' : '' }}">
                         <i class="comments outline icon"></i>
@@ -122,7 +122,7 @@
                     </a>
                     @endif
                     <a href="{{ route('frontend.help') }}" class="item {{ Route::currentRouteName()=='frontend.help' ? 'active' : '' }}">
-                        <i class="question icon"></i>
+                        <i class="desktop icon"></i>Help
                     </a>
                     @if(auth()->check())
                     <div class="right menu">

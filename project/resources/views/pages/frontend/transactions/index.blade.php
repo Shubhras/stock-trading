@@ -35,9 +35,9 @@
                     if($asset->assettype == "Buy"){
                       
                       ?>
-                        <tr style="color:red">
+                        <tr >
                             <td><?php echo  $asset->name ;?></td>
-                            <td><?php echo  $asset->assettype ;?></td>
+                            <td style="color:red"><?php echo  $asset->assettype ;?></td>
                             <td><?php echo  $asset->volume ;?></td>
                             <td>$ <?php echo  $asset->price_open ;?></td>
                           
@@ -46,9 +46,9 @@
                         </tr>
                         <?php }else{
                             ?>
-                            <tr style="color:green">
+                            <tr >
                             <td><?php echo  $asset->name ;?></td>
-                            <td><?php echo  $asset->assettype ;?></td>
+                            <td style="color:green"><?php echo  $asset->assettype ;?></td>
                             <td><?php echo  $asset->volume ;?></td>
                             <td>$ <?php echo  $asset->price_open ;?></td>
                           

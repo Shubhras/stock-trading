@@ -5,22 +5,22 @@
         <i class="home icon"></i>
     </a>
     <div class="header item">{{ __('app.backend') }}</div>
-    <a href="{{ route('backend.dashboard') }}" class="item{{ Route::currentRouteName()=='backend.dashboard' ? ' active' : '' }}">
+   <!--  <a href="{{ route('backend.dashboard') }}" class="item{{ Route::currentRouteName()=='backend.dashboard' ? ' active' : '' }}">
         {{ __('app.dashboard') }}
         <i class="heartbeat icon"></i>
-    </a>
+    </a> -->
     <a href="{{ route('backend.assets.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.assets.')!==FALSE ? ' active' : '' }}">
         {{ __('app.assets') }}
         <i class="dollar icon"></i>
     </a>
-    <a href="{{ route('backend.competitions.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.competitions.')!==FALSE ? ' active' : '' }}">
+    <!-- <a href="{{ route('backend.competitions.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.competitions.')!==FALSE ? ' active' : '' }}">
         {{ __('app.competitions') }}
         <i class="trophy icon"></i>
-    </a>
-    <a href="{{ route('backend.trades.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.trades.')!==FALSE ? ' active' : '' }}">
+    </a> -->
+    <!-- <a href="{{ route('backend.trades.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.trades.')!==FALSE ? ' active' : '' }}">
         {{ __('app.trades') }}
         <i class="retweet icon"></i>
-    </a>
+    </a> -->
     <a href="{{ route('backend.users.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.users.')!==FALSE ? ' active' : '' }}">
         {{ __('users.users') }}
         <i class="users icon"></i>
@@ -33,22 +33,22 @@
     
     @packageview('includes.backend.header')
 
-    <a href="{{ route('backend.addons.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.addons.')!==FALSE ? ' active' : '' }}">
+    <!-- <a href="{{ route('backend.addons.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.addons.')!==FALSE ? ' active' : '' }}">
         {{ __('settings.addons') }}
         <i class="codepen icon"></i>
-    </a>
-    <a href="{{ route('backend.settings.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.settings.')!==FALSE ? ' active' : '' }}">
+    </a> -->
+   <!--  <a href="{{ route('backend.settings.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.settings.')!==FALSE ? ' active' : '' }}">
         {{ __('settings.settings') }}
         <i class="settings icon"></i>
-    </a>
-    <a href="{{ route('backend.maintenance.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.maintenance.')!==FALSE ? ' active' : '' }}">
+    </a> -->
+   <!--  <a href="{{ route('backend.maintenance.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.maintenance.')!==FALSE ? ' active' : '' }}">
         {{ __('maintenance.maintenance') }}
         <i class="server icon"></i>
-    </a>
-    <a href="{{ route('backend.license.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.license.')!==FALSE ? ' active' : '' }}">
+    </a> -->
+   <!--  <a href="{{ route('backend.license.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.license.')!==FALSE ? ' active' : '' }}">
         {{ __('license.registration') }}
         <i class="copyright outline icon"></i>
-    </a>
+    </a> -->
     <log-out-button token="{{ csrf_token() }}" class="item">
         {{ __('auth.logout') }}
         <i class="sign out alternate icon"></i>

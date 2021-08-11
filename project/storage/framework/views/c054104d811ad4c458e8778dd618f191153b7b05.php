@@ -15,7 +15,7 @@ Assets
     </div>
     <?php else: ?>
     <?php if($markets->count() > 1): ?>
-    <div class="five wide column">
+   <!--  <div class="five wide column">
         <div id="market-dropdown" class="ui selection fluid dropdown">
             <i class="dropdown icon"></i>
             <div class="default text"></div>
@@ -25,7 +25,7 @@ Assets
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
-    </div>
+    </div> -->
     <?php endif; ?>
     <div class="sixteen wide column">
         <assets-table :assets-list="<?php echo e($assets->getCollection()); ?>" class="ui selectable <?php echo e($inverted); ?> table">

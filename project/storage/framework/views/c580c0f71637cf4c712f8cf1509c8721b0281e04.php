@@ -1,13 +1,19 @@
 
 
 <?php $__env->startSection('title'); ?>
-    <?php echo e(__('app.dashboard')); ?>
+<?php echo e(__('app.dashboard')); ?>
 
 <?php $__env->stopSection(); ?>
 
 
 
 <?php $__env->startSection('content'); ?>
+
+<!-- <?php if($first_time_login): ?>
+<h3>Welcome Popup</h3>
+<?php else: ?>
+<h3>Hey! 🖐 Nothing to Show</h3>
+<?php endif; ?> -->
 
 <!-- <?php if(Session::get('status')): ?>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -16,10 +22,10 @@
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <?php endif; ?> -->
-    <div class="ui stackable grid container">
-        <div class="ten wide column">
+<div class="ui stackable grid container">
+    <div class="ten wide column">
         <img src="<?php echo e(asset('images/trading.jpeg')); ?>" style="height: 100%;width:100%" class="image">
-            <!-- <h2 class="ui <?php echo e($settings->color); ?> dividing header">
+        <!-- <h2 class="ui <?php echo e($settings->color); ?> dividing header">
                 <?php echo e(__('app.top_traded')); ?>
 
             </h2>
@@ -107,9 +113,9 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 <?php endif; ?>
             </div> -->
-        </div>
-        <div class="six wide column">
-           <!--  <h2 class="ui <?php echo e($settings->color); ?> dividing header">
+    </div>
+    <div class="six wide column">
+        <!--  <h2 class="ui <?php echo e($settings->color); ?> dividing header">
                 <?php echo e(__('app.top_trades')); ?>
 
             </h2>
@@ -160,77 +166,79 @@
                     </div>
                 <?php endif; ?>
             </div> -->
-            <h2 class="ui <?php echo e($settings->color); ?> dividing header">
-                <?php echo e(__('app.top_traded')); ?>
+        <h2 class="ui <?php echo e($settings->color); ?> dividing header">
+            <?php echo e(__('app.top_traded')); ?>
 
-            </h2>
-            <div class="ui equal width stackable grid">
-                <?php if($top_traded_assets->isEmpty()): ?>
-                    <div class="column">
-                        <div class="ui <?php echo e($inverted); ?> segment">
-                            <p><?php echo e(__('app.no_open_trades')); ?></p>
-                        </div>
-                    </div>
-                <?php else: ?>
-                    <?php $__currentLoopData = $top_traded_assets->chunk(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $top_traded_assets_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="row">
-                            <?php $__currentLoopData = $top_traded_assets_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $asset): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="center aligned column">
-                                    <div class="ui <?php echo e($inverted); ?> segment">
-                                        <div class="ui small <?php echo e($inverted); ?> statistic">
-                                            <img class="ui tiny centered image" src="<?php echo e($asset->logo_url); ?>">
-                                            <div class="">
-                                                <?php echo e($asset->symbol); ?>
-
-                                            </div>
-                                            <div class="label">
-                                                <?php echo e($asset->_trades_count); ?>
-
-                                                <?php echo e(__('app.trades')); ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <?php endif; ?>
+        </h2>
+        <div class="ui equal width stackable grid">
+            <?php if($top_traded_assets->isEmpty()): ?>
+            <div class="column">
+                <div class="ui <?php echo e($inverted); ?> segment">
+                    <p><?php echo e(__('app.no_open_trades')); ?></p>
+                </div>
             </div>
-           
+            <?php else: ?>
+            <?php $__currentLoopData = $top_traded_assets->chunk(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $top_traded_assets_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="row">
+                <?php $__currentLoopData = $top_traded_assets_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $asset): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="center aligned column">
+                    <div class="ui <?php echo e($inverted); ?> segment">
+                        <div class="ui small <?php echo e($inverted); ?> statistic">
+                            <img class="ui tiny centered image" src="<?php echo e($asset->logo_url); ?>">
+                            <div class="">
+                                <?php echo e($asset->symbol); ?>
 
-            <h2 class="ui <?php echo e($settings->color); ?> dividing header">
-                <!-- <?php echo e(__('app.top_traded')); ?> -->Recent Treades
-            </h2>
-            <div class="ui equal width stackable grid">
-                <?php if($recent_TradedAssets->isEmpty()): ?>
-                    <div class="column">
-                        <div class="ui <?php echo e($inverted); ?> segment">
-                            <p><!-- <?php echo e(__('app.no_open_trades')); ?> -->No recent trade yet.</p>
+                            </div>
+                            <div class="label">
+                                <?php echo e($asset->_trades_count); ?>
+
+                                <?php echo e(__('app.trades')); ?>
+
+                            </div>
                         </div>
                     </div>
-                <?php else: ?>
-                    <?php $__currentLoopData = $recent_TradedAssets->chunk(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recent_TradedAssets_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="column">
-                        <!--     <?php $__currentLoopData = $recent_TradedAssets_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $assets): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> -->
-                                <div class="center aligned column">
-                                    <!-- <div class="ui <?php echo e($inverted); ?> segment">
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
+        </div>
+
+
+        <h2 class="ui <?php echo e($settings->color); ?> dividing header">
+            <!-- <?php echo e(__('app.top_traded')); ?> -->Recent Treades
+        </h2>
+        <div class="ui equal width stackable grid">
+            <?php if($recent_TradedAssets->isEmpty()): ?>
+            <div class="column">
+                <div class="ui <?php echo e($inverted); ?> segment">
+                    <p>
+                        <!-- <?php echo e(__('app.no_open_trades')); ?> -->No recent trade yet.
+                    </p>
+                </div>
+            </div>
+            <?php else: ?>
+            <?php $__currentLoopData = $recent_TradedAssets->chunk(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recent_TradedAssets_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="column">
+                <!--     <?php $__currentLoopData = $recent_TradedAssets_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $assets): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> -->
+                <div class="center aligned column">
+                    <!-- <div class="ui <?php echo e($inverted); ?> segment">
                                         <div class="ui small <?php echo e($inverted); ?> statistic"> -->
-                                          <li>
-                                         <!--    <div class=""> -->
-                                                <?php echo e($assets->name); ?>
+                    <li>
+                        <!--    <div class=""> -->
+                        <?php echo e($assets->name); ?>
 
-                                         <!-- </div> -->
-                                           </li>
-                                     <!-- </div>
+                        <!-- </div> -->
+                    </li>
+                    <!-- </div>
                                     </div> -->
-                                </div>
-                           <!--  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> -->
-                        </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <?php endif; ?>
+                </div>
+                <!--  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> -->
             </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div>
     </div>
+</div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

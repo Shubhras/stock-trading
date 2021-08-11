@@ -14,6 +14,8 @@ class WalletController extends Controller
     {
         $assets = DB::table('wallets')->select('wallets.*','assets.symbol as name')
         ->join('assets', 'assets.id', '=', 'wallets.asset_id')
+        ->where('user_id', auth()->user()->id)
+
         ->orderBy('id','DESC')->paginate(10);
        // ->get();
          // $users = DB::table('trades')->get();

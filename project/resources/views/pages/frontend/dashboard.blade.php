@@ -1,12 +1,18 @@
 @extends('layouts.frontend')
 
 @section('title')
-    {{ __('app.dashboard') }}
+{{ __('app.dashboard') }}
 @endsection
 
 
 
 @section('content')
+
+<!-- @if ($first_time_login)
+<h3>Welcome Popup</h3>
+@else
+<h3>Hey! 🖐 Nothing to Show</h3>
+@endif -->
 
 <!-- @if(Session::get('status'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,10 +20,10 @@
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif -->
-    <div class="ui stackable grid container">
-        <div class="ten wide column">
+<div class="ui stackable grid container">
+    <div class="ten wide column">
         <img src="{{ asset('images/trading.jpeg') }}" style="height: 100%;width:100%" class="image">
-            <!-- <h2 class="ui {{ $settings->color }} dividing header">
+        <!-- <h2 class="ui {{ $settings->color }} dividing header">
                 {{ __('app.top_traded') }}
             </h2>
             <div class="ui equal width stackable grid">
@@ -96,9 +102,9 @@
                     @endforeach
                 @endif
             </div> -->
-        </div>
-        <div class="six wide column">
-           <!--  <h2 class="ui {{ $settings->color }} dividing header">
+    </div>
+    <div class="six wide column">
+        <!--  <h2 class="ui {{ $settings->color }} dividing header">
                 {{ __('app.top_trades') }}
             </h2>
             <div class="ui one column stackable grid">
@@ -144,71 +150,73 @@
                     </div>
                 @endif
             </div> -->
-            <h2 class="ui {{ $settings->color }} dividing header">
-                {{ __('app.top_traded') }}
-            </h2>
-            <div class="ui equal width stackable grid">
-                @if($top_traded_assets->isEmpty())
-                    <div class="column">
-                        <div class="ui {{ $inverted }} segment">
-                            <p>{{ __('app.no_open_trades') }}</p>
+        <h2 class="ui {{ $settings->color }} dividing header">
+            {{ __('app.top_traded') }}
+        </h2>
+        <div class="ui equal width stackable grid">
+            @if($top_traded_assets->isEmpty())
+            <div class="column">
+                <div class="ui {{ $inverted }} segment">
+                    <p>{{ __('app.no_open_trades') }}</p>
+                </div>
+            </div>
+            @else
+            @foreach($top_traded_assets->chunk(3) as $top_traded_assets_chunk)
+            <div class="row">
+                @foreach($top_traded_assets_chunk as $asset)
+                <div class="center aligned column">
+                    <div class="ui {{ $inverted }} segment">
+                        <div class="ui small {{ $inverted }} statistic">
+                            <img class="ui tiny centered image" src="{{ $asset->logo_url }}">
+                            <div class="">
+                                {{ $asset->symbol }}
+                            </div>
+                            <div class="label">
+                                {{ $asset->_trades_count }}
+                                {{ __('app.trades') }}
+                            </div>
                         </div>
                     </div>
-                @else
-                    @foreach($top_traded_assets->chunk(3) as $top_traded_assets_chunk)
-                        <div class="row">
-                            @foreach($top_traded_assets_chunk as $asset)
-                                <div class="center aligned column">
-                                    <div class="ui {{ $inverted }} segment">
-                                        <div class="ui small {{ $inverted }} statistic">
-                                            <img class="ui tiny centered image" src="{{ $asset->logo_url }}">
-                                            <div class="">
-                                                {{ $asset->symbol }}
-                                            </div>
-                                            <div class="label">
-                                                {{ $asset->_trades_count }}
-                                                {{ __('app.trades') }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    @endforeach
-                @endif
+                </div>
+                @endforeach
             </div>
-           
+            @endforeach
+            @endif
+        </div>
 
-            <h2 class="ui {{ $settings->color }} dividing header">
-                <!-- {{ __('app.top_traded') }} -->Recent Treades
-            </h2>
-            <div class="ui equal width stackable grid">
-                @if($recent_TradedAssets->isEmpty())
-                    <div class="column">
-                        <div class="ui {{ $inverted }} segment">
-                            <p><!-- {{ __('app.no_open_trades') }} -->No recent trade yet.</p>
-                        </div>
-                    </div>
-                @else
-                    @foreach($recent_TradedAssets->chunk(3) as $recent_TradedAssets_chunk)
-                        <div class="column">
-                        <!--     @foreach($recent_TradedAssets_chunk as $assets) -->
-                                <div class="center aligned column">
-                                    <!-- <div class="ui {{ $inverted }} segment">
-                                        <div class="ui small {{ $inverted }} statistic"> -->
-                                          <li>
-                                         <!--    <div class=""> -->
-                                                {{ $assets->name }}
-                                         <!-- </div> -->
-                                           </li>
-                                     <!-- </div>
-                                    </div> -->
-                                </div>
-                           <!--  @endforeach -->
-                        </div>
-                    @endforeach
-                @endif
+
+        <h2 class="ui {{ $settings->color }} dividing header">
+            <!-- {{ __('app.top_traded') }} -->Recent Treades
+        </h2>
+        <div class="ui equal width stackable grid">
+            @if($recent_TradedAssets->isEmpty())
+            <div class="column">
+                <div class="ui {{ $inverted }} segment">
+                    <p>
+                        <!-- {{ __('app.no_open_trades') }} -->No recent trade yet.
+                    </p>
+                </div>
             </div>
+            @else
+            @foreach($recent_TradedAssets->chunk(3) as $recent_TradedAssets_chunk)
+            <div class="column">
+                <!--     @foreach($recent_TradedAssets_chunk as $assets) -->
+                <div class="center aligned column">
+                    <!-- <div class="ui {{ $inverted }} segment">
+                                        <div class="ui small {{ $inverted }} statistic"> -->
+                    <li>
+                        <!--    <div class=""> -->
+                        {{ $assets->name }}
+                        <!-- </div> -->
+                    </li>
+                    <!-- </div>
+                                    </div> -->
+                </div>
+                <!--  @endforeach -->
+            </div>
+            @endforeach
+            @endif
         </div>
     </div>
+</div>
 @endsection

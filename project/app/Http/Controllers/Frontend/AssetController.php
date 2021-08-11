@@ -23,9 +23,9 @@ class AssetController extends Controller
         $market = $request->market ?: config('settings.market');
 
         $assets = Asset::where('status', Asset::STATUS_ACTIVE)
-            ->whereIn('market_id', function($query) use ($market) {
+            /* ->whereIn('market_id', function($query) use ($market) {
                 $query->select('id')->from('markets')->where('code', $market);
-            })
+            }) */
             ->with('currency:id,code,symbol_native')
             ->withCount('trades')
             ->orderBy($sort->getSortColumn(), $sort->getOrder())

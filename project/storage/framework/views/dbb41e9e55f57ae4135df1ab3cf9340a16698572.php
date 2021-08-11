@@ -89,9 +89,9 @@
                     </a>
                 </h4>
             </div>
-            <div class="right aligned column">
+          <!--   <div class="right aligned column">
                 <locale-select :locales="<?php echo e(json_encode($locale->locales())); ?>" :locale="<?php echo e(json_encode($locale->locale())); ?>"></locale-select>
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="tablet only computer only column">
@@ -118,7 +118,7 @@
                         <i class="briefcase icon"></i>
                         <!-- <?php echo e(__('app.markets')); ?> -->My Assets
                     </a>
-                    <a href="<?php echo e(route('frontend.competitions.index')); ?>" class="item <?php echo e(strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : ''); ?>">
+                   <!--  <a href="<?php echo e(route('frontend.competitions.index')); ?>" class="item <?php echo e(strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : ''); ?>">
                         <i class="trophy icon"></i>
                         <?php echo e(__('app.competitions')); ?>
 
@@ -128,7 +128,7 @@
                         <i class="star icon"></i>
                         <?php echo e(__('app.rankings')); ?>
 
-                    </a>
+                    </a> -->
                     <?php if(config('broadcasting.connections.pusher.key')): ?>
                     <a href="<?php echo e(route('frontend.chat.index')); ?>" class="item <?php echo e(Route::currentRouteName()=='frontend.chat.index' ? 'active' : ''); ?>">
                         <i class="comments outline icon"></i>
@@ -137,7 +137,7 @@
                     </a>
                     <?php endif; ?>
                     <a href="<?php echo e(route('frontend.help')); ?>" class="item <?php echo e(Route::currentRouteName()=='frontend.help' ? 'active' : ''); ?>">
-                        <i class="question icon"></i>
+                        <i class="desktop icon"></i>Help
                     </a>
                     <?php if(auth()->check()): ?>
                     <div class="right menu">

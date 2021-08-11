@@ -16,7 +16,7 @@ class MyAssetsController extends Controller
         // ->orderBy('id','DESC')->paginate(10);
 
         $assets = DB::table('wallets')->select('wallets.*', 'assets.symbol as name', 'assets.price as current_value', 'assets.id as assets_id')
-            ->join('assets', 'assets.id', '=', 'wallets.asset_id')->where('wallets.status', 'paid')
+            ->join('assets', 'assets.id', '=', 'wallets.asset_id')->where(['wallets.status'=> 'paid','user_id'=> auth()->user()->id])
             ->orderBy('id', 'DESC')->paginate(10);
 
 
