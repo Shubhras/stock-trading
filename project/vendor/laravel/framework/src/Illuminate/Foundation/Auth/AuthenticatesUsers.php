@@ -158,7 +158,7 @@ trait AuthenticatesUsers
 
         $request->session()->invalidate();
 
-        return $this->loggedOut($request) ?: redirect('/stock-trading');
+        return $this->loggedOut($request) ?: redirect('/');
     }
 
     /**

@@ -58,10 +58,23 @@
 
                                     @packageview('includes.frontend.header')
 
-                                    <log-out-button token="{{ csrf_token() }}" class="item">
+                                    <!-- <log-out-button token="{{ csrf_token() }}" class="item">
                                         <i class="sign out alternate icon"></i>
                                         {{ __('auth.logout') }}
-                                    </log-out-button>
+                                    </log-out-button> -->
+
+
+                                    @auth
+                                    <form class="ui form" method="POST" action="{{ route('logout') }}">
+                                    <log-out-button token="{{ csrf_token() }}" class="item">
+                                        <i class="sign out alternate icon"></i>
+                                        <!-- {{ csrf_field() }} -->
+                                        
+                                        {{ __('auth.logout') }}
+
+                                        </log-out-button>
+                                    </form>
+                                    @endauth
                                 </div>
                             </div>
                             @endif
@@ -78,7 +91,7 @@
                     </a>
                 </h4>
             </div>
-          <!--   <div class="right aligned column">
+            <!--   <div class="right aligned column">
                 <locale-select :locales="{{ json_encode($locale->locales()) }}" :locale="{{ json_encode($locale->locale()) }}"></locale-select>
             </div> -->
         </div>
@@ -106,7 +119,7 @@
                         <i class="briefcase icon"></i>
                         <!-- {{ __('app.markets') }} -->My Assets
                     </a>
-                   <!--  <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
+                    <!--  <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
                         <i class="trophy icon"></i>
                         {{ __('app.competitions') }}
                     </a>
@@ -158,24 +171,24 @@
                 <!-- END Desktop menu -->
             </div>
 
-            </div>
+        </div>
     </div>
-            
+
     @if(auth()->user()->id !==1)
-    
 
-<div class="row">
-<div class="4" style="text-align: left;">
- <!-- <h4 href="#" style="margin-right: 108px;margin-top:10px; border:white" class="ui small basic blue icon submit nowrap">Wallet - Available Balance:</h4> -->
- <h3 class="ui blue header" style="margin-right: 108px;margin-top:10px;">Wallet - Available Balance: ${{ auth()->user()->wallet_balance }}</h3>
- </div>
 
-<div class="8" style="margin-inline-start: auto; margin-right: 26px;">
- <button href="#" style="margin-top:10px; float:right; " data-toggle="modal" data-target="#RequestPoint" class="ui small basic blue icon submit nowrap button">Request Points</button>
- </div>
- </div>
-@endif
-   
+    <div class="row">
+        <div class="4" style="text-align: left;">
+            <!-- <h4 href="#" style="margin-right: 108px;margin-top:10px; border:white" class="ui small basic blue icon submit nowrap">Wallet - Available Balance:</h4> -->
+            <h3 class="ui blue header" style="margin-right: 108px;margin-top:10px;">Wallet - Available Balance: ${{ auth()->user()->wallet_balance }}</h3>
+        </div>
+
+        <div class="8" style="margin-inline-start: auto; margin-right: 26px;">
+            <button href="#" style="margin-top:10px; float:right; " data-toggle="modal" data-target="#RequestPoint" class="ui small basic blue icon submit nowrap button">Request Points</button>
+        </div>
+    </div>
+    @endif
+
 </div>
 
 
@@ -239,6 +252,3 @@
         });
     })
 </script>
-
-
-
