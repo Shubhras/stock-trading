@@ -249,13 +249,13 @@ My Assests
                         console.log(response)
                         $("#btnPointsModal").click()
                         $("#sellAsset").modal('hide')
-                        alert("sell point Sent");
+                      //  alert("sell point Sent");
                         location.reload();
 
                     },
                     error: function(error) {
                         console.log(error)
-                        alert("sell point Not sent");
+                      //  alert("sell point Not sent");
                     }
 
                 });

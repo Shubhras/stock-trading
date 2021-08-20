@@ -167,13 +167,13 @@ Assets
                     console.log(response)
                     $("#btnPointsModal").click()
                     //$("#addform1")['0'].reset();
-                    alert("Buy Request Sent");
+                   // alert("Buy Request Sent");
                    location.reload();
 
                 },
                 error: function(error) {
                     console.log(error)
-                    alert("Request Can Not be send due to insufficient points.");
+                  // alert("Request Can Not be send due to insufficient points.");
                 }
             });
         });

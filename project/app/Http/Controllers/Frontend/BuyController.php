@@ -8,7 +8,7 @@ use App\Models\Asset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Exception;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class BuyController extends Controller
 {

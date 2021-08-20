@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+//error_reporting(0);
 use Closure;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\View;

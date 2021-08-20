@@ -247,13 +247,13 @@
                 success: function(response) {
                     console.log(response)
                     $("#RequestPoint").modal('hide')
-                    alert("Request Sent");
+                   // alert("Request Sent");
                     location.reload();
 
                 },
                 error: function(error) {
                     console.log(error)
-                    alert("Request Not sent");
+                   // alert("Request Not sent");
                 }
             });
         });
