@@ -24,9 +24,10 @@ class AssetController extends Controller
     {
         $sort = new AssetSort($request);
 
-        $assets = Asset::select('assets.*', 'markets.code AS market_code')
-            ->join('markets', 'markets.id', '=', 'assets.market_id') // inner join is required to enable sort by market, otherwise with() would have been sufficient
-            ->with('currency:id,code,symbol_native')
+        $assets = Asset::select('assets.*'/* , 'markets.code AS market_code' */)
+           // ->join('markets', 'markets.id', '=', 'assets.market_id') // inner join is required to enable sort by market, otherwise with() would have been sufficient
+           //->with('currency:id,code,symbol_native')
+            ->with('currency:id,symbol_native')
             ->orderBy($sort->getSortColumn(), $sort->getOrder())->paginate($this->rowsPerPage);
 
         return view('pages.backend.assets.index', [

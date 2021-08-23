@@ -40,7 +40,7 @@
                             <textarea type="text" name="message" placeholder="Message" value="<?php echo e(old('message')); ?>" required autofocus></textarea>
                         </div>
                     </div>
-                    <div class="field <?php echo e($errors->has('market') ? 'error' : ''); ?>">
+                   <!--  <div class="field <?php echo e($errors->has('market') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.market')); ?></label>
                         <div id="asset-market-dropdown" class="ui selection dropdown">
                             <input type="hidden" name="market">
@@ -52,7 +52,7 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="field <?php echo e($errors->has('price') ? 'error' : ''); ?>">
                         <label><?php echo e(__('app.price')); ?></label>
                         <div class="ui input">

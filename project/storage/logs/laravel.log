@@ -1967,3 +1967,420 @@
 [2021-08-20 11:40:23] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.04} 
 [2021-08-20 11:40:23] production.DEBUG: select * from `assets` where `assets`.`id` in (6354) {"params":[],"time":0.38} 
 [2021-08-20 11:40:23] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.17} 
+[2021-08-23 15:36:38] production.DEBUG: select * from `users` where `email` = ? and `status` = ? limit 1 {"params":["test8@gmail.com",0],"time":1.86} 
+[2021-08-23 15:36:38] production.DEBUG: update `users` set `last_login_time` = ?, `updated_at` = ? where `id` = ? {"params":["2021-08-23 15:36:38","2021-08-23 15:36:38",20],"time":3.75} 
+[2021-08-23 15:36:38] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.06} 
+[2021-08-23 15:36:38] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.24} 
+[2021-08-23 15:36:38] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.33} 
+[2021-08-23 15:36:38] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.22} 
+[2021-08-23 15:36:38] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":0.36} 
+[2021-08-23 15:36:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.11} 
+[2021-08-23 15:36:40] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":1.06} 
+[2021-08-23 15:36:40] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[20],"time":0.68} 
+[2021-08-23 15:36:40] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.37} 
+[2021-08-23 15:36:40] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.31} 
+[2021-08-23 15:36:47] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.38} 
+[2021-08-23 15:36:47] production.DEBUG: select count(*) as aggregate from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? {"params":[20],"time":0.84} 
+[2021-08-23 15:36:47] production.DEBUG: select `trades`.*, `assets`.`name` from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `id` desc limit 10 offset 0 {"params":[20],"time":0.52} 
+[2021-08-23 15:37:12] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.05} 
+[2021-08-23 15:37:12] production.DEBUG: select count(*) as aggregate from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? {"params":[20],"time":0.52} 
+[2021-08-23 15:37:12] production.DEBUG: select `trades`.*, `assets`.`name` from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `id` desc limit 10 offset 0 {"params":[20],"time":0.5} 
+[2021-08-23 15:37:14] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.16} 
+[2021-08-23 15:37:14] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where `user_id` = ? {"params":[20],"time":0.53} 
+[2021-08-23 15:37:14] production.DEBUG: select `wallets`.*, `assets`.`symbol` as `name` from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where `user_id` = ? order by `id` desc limit 10 offset 0 {"params":[20],"time":0.5} 
+[2021-08-23 15:37:18] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.59} 
+[2021-08-23 15:37:18] production.DEBUG: update `users` set `remember_token` = ? where `id` = ? {"params":["59zqCVpvkqXHwuZ9TDkrbQxmziIPG7ujeT0etsWP9HZeRTgxuP0ghEX15JBt",20],"time":4.06} 
+[2021-08-23 15:37:18] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.22} 
+[2021-08-23 15:37:18] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.36} 
+[2021-08-23 15:37:18] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":2.09} 
+[2021-08-23 15:37:23] production.DEBUG: select * from `users` where `email` = ? and `status` = ? limit 1 {"params":["admin@malinator.com",0],"time":1.34} 
+[2021-08-23 15:37:23] production.DEBUG: update `users` set `last_login_time` = ?, `updated_at` = ? where `id` = ? {"params":["2021-08-23 15:37:23","2021-08-23 15:37:23",1],"time":2.72} 
+[2021-08-23 15:37:23] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.15} 
+[2021-08-23 15:37:23] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":0.67} 
+[2021-08-23 15:37:23] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.36} 
+[2021-08-23 15:37:23] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.45} 
+[2021-08-23 15:37:23] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.41} 
+[2021-08-23 15:37:27] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.71} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `users` {"params":[],"time":0.61} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `users` where `status` = ? {"params":[0],"time":0.55} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `users` where `status` = ? {"params":[1],"time":1.7} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `competitions` {"params":[],"time":0.41} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `competitions` where `status` = ? or `status` = ? {"params":[0,1],"time":0.21} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `competitions` where `status` = ? or `status` = ? {"params":[2,3],"time":0.23} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? {"params":[1],"time":0.23} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? and `pnl` > ? {"params":[1,0],"time":0.29} 
+[2021-08-23 15:37:27] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? and `pnl` <= ? {"params":[1,0],"time":0.3} 
+[2021-08-23 15:39:59] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.44} 
+[2021-08-23 15:39:59] production.DEBUG: select count(*) as aggregate from `assets` inner join `markets` on `markets`.`id` = `assets`.`market_id` {"params":[],"time":0.34} 
+[2021-08-23 15:40:04] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.84} 
+[2021-08-23 15:40:04] production.DEBUG: select count(*) as aggregate from `assets` inner join `markets` on `markets`.`id` = `assets`.`market_id` {"params":[],"time":0.41} 
+[2021-08-23 15:40:07] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.18} 
+[2021-08-23 15:40:07] production.DEBUG: select count(*) as aggregate from `assets` inner join `markets` on `markets`.`id` = `assets`.`market_id` {"params":[],"time":0.43} 
+[2021-08-23 15:40:22] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.16} 
+[2021-08-23 15:40:22] production.DEBUG: select count(*) as aggregate from `assets` inner join `markets` on `markets`.`id` = `assets`.`market_id` {"params":[],"time":0.52} 
+[2021-08-23 15:40:25] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.17} 
+[2021-08-23 15:40:25] production.DEBUG: select count(*) as aggregate from `assets` inner join `markets` on `markets`.`id` = `assets`.`market_id` {"params":[],"time":0.36} 
+[2021-08-23 15:40:26] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.53} 
+[2021-08-23 15:40:26] production.DEBUG: select count(*) as aggregate from `assets` inner join `markets` on `markets`.`id` = `assets`.`market_id` {"params":[],"time":0.32} 
+[2021-08-23 15:40:36] production.DEBUG: select * from `users` where `email` = ? and `status` = ? limit 1 {"params":["admin@malinator.com",0],"time":1.75} 
+[2021-08-23 15:40:36] production.DEBUG: update `users` set `last_login_time` = ?, `updated_at` = ? where `id` = ? {"params":["2021-08-23 15:40:36","2021-08-23 15:40:36",1],"time":3.41} 
+[2021-08-23 15:40:36] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.28} 
+[2021-08-23 15:40:36] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":0.74} 
+[2021-08-23 15:40:36] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.34} 
+[2021-08-23 15:40:36] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.36} 
+[2021-08-23 15:40:36] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.41} 
+[2021-08-23 15:40:38] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.17} 
+[2021-08-23 15:40:38] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.49} 
+[2021-08-23 15:40:38] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.32} 
+[2021-08-23 15:40:38] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.42} 
+[2021-08-23 15:40:38] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.24} 
+[2021-08-23 15:40:43] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.6} 
+[2021-08-23 15:40:43] production.DEBUG: select count(*) as aggregate from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? {"params":[1],"time":0.52} 
+[2021-08-23 15:40:45] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.25} 
+[2021-08-23 15:40:45] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where `user_id` = ? {"params":[1],"time":0.58} 
+[2021-08-23 15:40:45] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.16} 
+[2021-08-23 15:40:45] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",1],"time":0.67} 
+[2021-08-23 15:41:07] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.32} 
+[2021-08-23 15:41:07] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",1],"time":0.63} 
+[2021-08-23 15:41:09] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":2.3} 
+[2021-08-23 15:41:09] production.DEBUG: update `users` set `remember_token` = ? where `id` = ? {"params":["lIEVfwkOViPXfuisxEouNwvgRQcu9f4pZrwyKx1bM76nb8NAb6CRCIi1LgWG",1],"time":3.73} 
+[2021-08-23 15:41:09] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.13} 
+[2021-08-23 15:41:09] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.39} 
+[2021-08-23 15:41:09] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.45} 
+[2021-08-23 15:41:14] production.DEBUG: select * from `users` where `email` = ? and `status` = ? limit 1 {"params":["admin@malinator.com",0],"time":1.86} 
+[2021-08-23 15:41:15] production.DEBUG: update `users` set `last_login_time` = ?, `updated_at` = ? where `id` = ? {"params":["2021-08-23 15:41:14","2021-08-23 15:41:14",1],"time":2.84} 
+[2021-08-23 15:41:15] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.56} 
+[2021-08-23 15:41:15] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":0.78} 
+[2021-08-23 15:41:15] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.48} 
+[2021-08-23 15:41:15] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.47} 
+[2021-08-23 15:41:15] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.38} 
+[2021-08-23 15:41:19] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.83} 
+[2021-08-23 15:41:19] production.DEBUG: update `users` set `remember_token` = ? where `id` = ? {"params":["1KnMogblIEbcgcnZTNa3PX9TrkCbpjAlGcIEIEjiD8UBx3N5pFbV4WR6i2fz",1],"time":2.71} 
+[2021-08-23 15:41:19] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.21} 
+[2021-08-23 15:41:19] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.36} 
+[2021-08-23 15:41:19] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.39} 
+[2021-08-23 15:42:50] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.59} 
+[2021-08-23 15:42:50] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.42} 
+[2021-08-23 15:42:50] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.22} 
+[2021-08-23 15:42:54] production.DEBUG: select * from `users` where `email` = ? and `status` = ? limit 1 {"params":["admin@malinator.com",0],"time":1.14} 
+[2021-08-23 15:42:55] production.DEBUG: update `users` set `last_login_time` = ?, `updated_at` = ? where `id` = ? {"params":["2021-08-23 15:42:55","2021-08-23 15:42:55",1],"time":3.75} 
+[2021-08-23 15:42:55] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.23} 
+[2021-08-23 15:42:55] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":1.07} 
+[2021-08-23 15:42:55] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.95} 
+[2021-08-23 15:42:55] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.67} 
+[2021-08-23 15:42:55] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.54} 
+[2021-08-23 15:48:11] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.55} 
+[2021-08-23 15:48:11] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.46} 
+[2021-08-23 15:48:11] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.28} 
+[2021-08-23 15:48:11] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.4} 
+[2021-08-23 15:48:11] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.21} 
+[2021-08-23 15:48:14] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.42} 
+[2021-08-23 15:48:14] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.42} 
+[2021-08-23 15:48:14] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.34} 
+[2021-08-23 15:48:14] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `price` asc limit 10 offset 0 {"params":[0],"time":0.43} 
+[2021-08-23 15:48:14] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.24} 
+[2021-08-23 15:48:16] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.37} 
+[2021-08-23 15:48:16] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.45} 
+[2021-08-23 15:48:16] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.41} 
+[2021-08-23 15:48:16] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `symbol` asc limit 10 offset 0 {"params":[0],"time":0.49} 
+[2021-08-23 15:48:16] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.24} 
+[2021-08-23 15:48:26] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.69} 
+[2021-08-23 15:48:26] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.62} 
+[2021-08-23 15:48:36] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.58} 
+[2021-08-23 15:48:36] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.69} 
+[2021-08-23 15:48:39] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.86} 
+[2021-08-23 15:48:39] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.45} 
+[2021-08-23 15:48:39] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.35} 
+[2021-08-23 15:48:39] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `symbol` asc limit 10 offset 0 {"params":[0],"time":0.42} 
+[2021-08-23 15:48:39] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.24} 
+[2021-08-23 15:48:49] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.96} 
+[2021-08-23 15:48:49] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.53} 
+[2021-08-23 15:48:59] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.48} 
+[2021-08-23 15:48:59] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":1.13} 
+[2021-08-23 15:49:09] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.38} 
+[2021-08-23 15:49:09] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.63} 
+[2021-08-23 15:49:19] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.34} 
+[2021-08-23 15:49:19] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.6} 
+[2021-08-23 15:49:29] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.51} 
+[2021-08-23 15:49:29] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.5} 
+[2021-08-23 15:49:39] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.36} 
+[2021-08-23 15:49:39] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.63} 
+[2021-08-23 15:49:46] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.16} 
+[2021-08-23 15:49:46] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.44} 
+[2021-08-23 15:49:46] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.43} 
+[2021-08-23 15:49:46] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `symbol` asc limit 10 offset 0 {"params":[0],"time":0.46} 
+[2021-08-23 15:49:46] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.2} 
+[2021-08-23 15:49:58] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.61} 
+[2021-08-23 15:49:58] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.97} 
+[2021-08-23 15:50:08] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.5} 
+[2021-08-23 15:50:08] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.55} 
+[2021-08-23 15:50:18] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.32} 
+[2021-08-23 15:50:18] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6363,6365,6364,6362],"time":0.45} 
+[2021-08-23 15:50:28] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.31} 
+[2021-08-23 15:50:28] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.43} 
+[2021-08-23 15:50:28] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.46} 
+[2021-08-23 15:50:28] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `symbol` asc limit 10 offset 0 {"params":[0],"time":0.55} 
+[2021-08-23 15:50:28] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.32} 
+[2021-08-23 15:50:34] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.24} 
+[2021-08-23 15:50:34] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.56} 
+[2021-08-23 15:50:34] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.45} 
+[2021-08-23 15:50:34] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.67} 
+[2021-08-23 15:50:34] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.3} 
+[2021-08-23 15:50:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":2.79} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `users` {"params":[],"time":0.47} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `users` where `status` = ? {"params":[0],"time":0.58} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `users` where `status` = ? {"params":[1],"time":0.38} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `competitions` {"params":[],"time":0.29} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `competitions` where `status` = ? or `status` = ? {"params":[0,1],"time":0.25} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `competitions` where `status` = ? or `status` = ? {"params":[2,3],"time":0.24} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? {"params":[1],"time":0.26} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? and `pnl` > ? {"params":[1,0],"time":0.28} 
+[2021-08-23 15:50:40] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? and `pnl` <= ? {"params":[1,0],"time":0.33} 
+[2021-08-23 15:50:45] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.26} 
+[2021-08-23 15:50:45] production.DEBUG: select count(*) as aggregate from `assets` inner join `markets` on `markets`.`id` = `assets`.`market_id` {"params":[],"time":0.37} 
+[2021-08-23 15:50:52] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.25} 
+[2021-08-23 15:50:52] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.41} 
+[2021-08-23 15:50:52] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.23} 
+[2021-08-23 15:50:52] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":0.46} 
+[2021-08-23 15:50:54] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.33} 
+[2021-08-23 15:50:54] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":1.21} 
+[2021-08-23 15:50:54] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.5} 
+[2021-08-23 15:50:54] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.4} 
+[2021-08-23 15:50:54] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.34} 
+[2021-08-23 15:51:03] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.58} 
+[2021-08-23 15:51:03] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.45} 
+[2021-08-23 15:51:03] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.36} 
+[2021-08-23 15:51:03] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.49} 
+[2021-08-23 15:51:03] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.21} 
+[2021-08-23 15:51:14] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.35} 
+[2021-08-23 15:51:14] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.65} 
+[2021-08-23 15:51:24] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.65} 
+[2021-08-23 15:51:24] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.6} 
+[2021-08-23 15:51:34] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.29} 
+[2021-08-23 15:51:34] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.58} 
+[2021-08-23 15:51:39] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.17} 
+[2021-08-23 15:51:39] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",1],"time":0.48} 
+[2021-08-23 15:51:45] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.33} 
+[2021-08-23 15:51:45] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":1.14} 
+[2021-08-23 15:51:45] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.63} 
+[2021-08-23 15:51:45] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.5} 
+[2021-08-23 15:51:45] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.37} 
+[2021-08-23 15:51:49] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.55} 
+[2021-08-23 15:51:49] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.42} 
+[2021-08-23 15:51:49] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.35} 
+[2021-08-23 15:51:49] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.46} 
+[2021-08-23 15:51:49] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.26} 
+[2021-08-23 15:51:59] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.62} 
+[2021-08-23 15:51:59] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.65} 
+[2021-08-23 15:52:07] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.47} 
+[2021-08-23 15:52:07] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.53} 
+[2021-08-23 15:52:07] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.47} 
+[2021-08-23 15:52:07] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.43} 
+[2021-08-23 15:52:07] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.23} 
+[2021-08-23 15:52:20] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.79} 
+[2021-08-23 15:52:20] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.57} 
+[2021-08-23 15:52:30] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":2.04} 
+[2021-08-23 15:52:30] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.69} 
+[2021-08-23 15:52:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.55} 
+[2021-08-23 15:52:40] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.63} 
+[2021-08-23 15:52:50] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.38} 
+[2021-08-23 15:52:50] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.56} 
+[2021-08-23 15:53:00] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.59} 
+[2021-08-23 15:53:00] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.59} 
+[2021-08-23 15:53:10] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.38} 
+[2021-08-23 15:53:10] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.88} 
+[2021-08-23 15:53:20] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.21} 
+[2021-08-23 15:53:20] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.77} 
+[2021-08-23 15:53:30] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.64} 
+[2021-08-23 15:53:30] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.53} 
+[2021-08-23 15:53:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.25} 
+[2021-08-23 15:53:40] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.52} 
+[2021-08-23 15:53:50] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.16} 
+[2021-08-23 15:53:50] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.48} 
+[2021-08-23 15:54:00] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.38} 
+[2021-08-23 15:54:00] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.46} 
+[2021-08-23 15:54:10] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.35} 
+[2021-08-23 15:54:10] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.43} 
+[2021-08-23 15:54:20] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.26} 
+[2021-08-23 15:54:20] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.53} 
+[2021-08-23 15:54:30] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.2} 
+[2021-08-23 15:54:30] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.43} 
+[2021-08-23 15:54:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.39} 
+[2021-08-23 15:54:40] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.86} 
+[2021-08-23 15:54:50] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.41} 
+[2021-08-23 15:54:50] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.69} 
+[2021-08-23 15:55:00] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.33} 
+[2021-08-23 15:55:00] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.47} 
+[2021-08-23 15:55:10] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.59} 
+[2021-08-23 15:55:10] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.47} 
+[2021-08-23 15:55:20] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.4} 
+[2021-08-23 15:55:20] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.55} 
+[2021-08-23 15:55:30] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.04} 
+[2021-08-23 15:55:30] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.73} 
+[2021-08-23 15:55:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.5} 
+[2021-08-23 15:55:40] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.55} 
+[2021-08-23 15:55:50] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.32} 
+[2021-08-23 15:55:50] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.61} 
+[2021-08-23 15:56:00] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.18} 
+[2021-08-23 15:56:00] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.62} 
+[2021-08-23 15:56:10] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.39} 
+[2021-08-23 15:56:10] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.72} 
+[2021-08-23 15:56:20] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.4} 
+[2021-08-23 15:56:20] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.65} 
+[2021-08-23 15:56:30] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.28} 
+[2021-08-23 15:56:30] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.55} 
+[2021-08-23 15:56:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.32} 
+[2021-08-23 15:56:40] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.49} 
+[2021-08-23 15:56:50] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.82} 
+[2021-08-23 15:56:50] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.76} 
+[2021-08-23 15:57:00] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.3} 
+[2021-08-23 15:57:00] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.67} 
+[2021-08-23 15:57:10] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.37} 
+[2021-08-23 15:57:10] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.6} 
+[2021-08-23 15:57:20] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.25} 
+[2021-08-23 15:57:20] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.55} 
+[2021-08-23 15:57:30] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.42} 
+[2021-08-23 15:57:30] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.56} 
+[2021-08-23 15:57:33] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.28} 
+[2021-08-23 15:57:33] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.57} 
+[2021-08-23 15:57:33] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.33} 
+[2021-08-23 15:57:33] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.41} 
+[2021-08-23 15:57:33] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.24} 
+[2021-08-23 15:57:45] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.36} 
+[2021-08-23 15:57:45] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.63} 
+[2021-08-23 15:57:55] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.07} 
+[2021-08-23 15:57:55] production.DEBUG: select * from `assets` where `status` = ? and `id` in (?, ?, ?, ?, ?) {"params":[0,6361,6362,6363,6364,6365],"time":0.78} 
+[2021-08-23 15:57:59] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.04} 
+[2021-08-23 15:57:59] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.45} 
+[2021-08-23 15:57:59] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.41} 
+[2021-08-23 15:57:59] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.49} 
+[2021-08-23 15:57:59] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.28} 
+[2021-08-23 15:58:05] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.58} 
+[2021-08-23 15:58:05] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":1.56} 
+[2021-08-23 15:58:05] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.56} 
+[2021-08-23 15:58:05] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.33} 
+[2021-08-23 15:58:05] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.31} 
+[2021-08-23 15:58:05] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.44} 
+[2021-08-23 15:58:05] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":0.72} 
+[2021-08-23 15:58:05] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.39} 
+[2021-08-23 15:58:05] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.35} 
+[2021-08-23 15:58:05] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.3} 
+[2021-08-23 15:58:10] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":2.17} 
+[2021-08-23 15:58:10] production.DEBUG: select count(*) as aggregate from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? {"params":[1],"time":0.47} 
+[2021-08-23 15:58:13] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.46} 
+[2021-08-23 15:58:13] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.48} 
+[2021-08-23 15:58:13] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.44} 
+[2021-08-23 15:58:13] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.46} 
+[2021-08-23 15:58:13] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.26} 
+[2021-08-23 15:58:15] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.88} 
+[2021-08-23 15:58:15] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where `user_id` = ? {"params":[1],"time":0.96} 
+[2021-08-23 15:58:18] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.26} 
+[2021-08-23 15:58:18] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",1],"time":0.56} 
+[2021-08-23 15:58:21] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.38} 
+[2021-08-23 15:58:27] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.4} 
+[2021-08-23 15:58:27] production.DEBUG: update `users` set `remember_token` = ? where `id` = ? {"params":["ACDuEJvKcu4XhMo50YXyTLccRkFfnwDtW93olnbWlpK8PwHqcYUHPJdIrcGv",1],"time":3.25} 
+[2021-08-23 15:58:27] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.1} 
+[2021-08-23 15:58:27] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.28} 
+[2021-08-23 15:58:27] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.19} 
+[2021-08-23 15:58:35] production.DEBUG: select * from `users` where `email` = ? and `status` = ? limit 1 {"params":["test8@gmail.com",0],"time":1.61} 
+[2021-08-23 15:58:35] production.DEBUG: update `users` set `last_login_time` = ?, `updated_at` = ? where `id` = ? {"params":["2021-08-23 15:58:35","2021-08-23 15:58:35",20],"time":2.99} 
+[2021-08-23 15:58:35] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.17} 
+[2021-08-23 15:58:35] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":0.66} 
+[2021-08-23 15:58:35] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[20],"time":0.33} 
+[2021-08-23 15:58:35] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.33} 
+[2021-08-23 15:58:35] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.35} 
+[2021-08-23 15:58:39] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.62} 
+[2021-08-23 15:58:39] production.DEBUG: select `id`, `code`, `name`, `country_code` from `markets` where `status` = ? order by `name` asc {"params":[0],"time":0.43} 
+[2021-08-23 15:58:39] production.DEBUG: select count(*) as aggregate from `assets` where `status` = ? {"params":[0],"time":0.33} 
+[2021-08-23 15:58:39] production.DEBUG: select `assets`.*, (select count(*) from `trades` where `assets`.`id` = `trades`.`asset_id`) as `trades_count` from `assets` where `status` = ? order by `market_cap` desc limit 10 offset 0 {"params":[0],"time":0.4} 
+[2021-08-23 15:58:39] production.DEBUG: select `id`, `code`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.21} 
+[2021-08-23 15:58:44] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.87} 
+[2021-08-23 15:58:44] production.DEBUG: select count(*) as aggregate from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? {"params":[20],"time":0.55} 
+[2021-08-23 15:58:44] production.DEBUG: select `trades`.*, `assets`.`name` from `trades` inner join `assets` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `id` desc limit 10 offset 0 {"params":[20],"time":0.45} 
+[2021-08-23 15:58:50] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.24} 
+[2021-08-23 15:58:50] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where `user_id` = ? {"params":[20],"time":0.48} 
+[2021-08-23 15:58:50] production.DEBUG: select `wallets`.*, `assets`.`symbol` as `name` from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where `user_id` = ? order by `id` desc limit 10 offset 0 {"params":[20],"time":0.46} 
+[2021-08-23 15:58:55] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.41} 
+[2021-08-23 15:58:55] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",20],"time":0.72} 
+[2021-08-23 15:58:55] production.DEBUG: select `wallets`.*, `assets`.`symbol` as `name`, `assets`.`price` as `current_value`, `assets`.`id` as `assets_id` from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) order by `id` desc limit 10 offset 0 {"params":["paid",20],"time":0.45} 
+[2021-08-23 15:59:04] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.49} 
+[2021-08-23 15:59:04] production.DEBUG: select `users`.`wallet_balance` from `users` where `users`.`id` = ? limit 1 {"params":["20"],"time":0.23} 
+[2021-08-23 15:59:04] production.DEBUG: update `users` set `wallet_balance` = ?, `updated_at` = ? where `id` = ? {"params":[279.73,"2021-08-23 15:59:04","20"],"time":3.49} 
+[2021-08-23 15:59:04] production.DEBUG: select `wallets`.`total_buy_cost`, `wallets`.`cost`, `wallets`.`quantity`, `assets`.`price` from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where `wallets`.`id` = ? limit 1 {"params":["152"],"time":0.63} 
+[2021-08-23 15:59:04] production.DEBUG: update `wallets` set `quantity` = ? where `id` = ? {"params":[0,"152"],"time":2.63} 
+[2021-08-23 15:59:04] production.DEBUG: select `assets`.`id`, `assets`.`price`, `assets`.`name`, `assets`.`volume` from `assets` where `id` = ? limit 1 {"params":["6361"],"time":0.75} 
+[2021-08-23 15:59:04] production.DEBUG: insert into `wallets` (`user_id`, `asset_id`, `status`, `quantity`, `cost`, `total_buy_cost`, `gain_loss`, `total_sell_cost`, `created_at`, `updated_at`) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) {"params":["20","6361","Received","1","38.42","207.350",-7.3547142512659684,"38","2021-08-23 15:59:04","2021-08-23 15:59:04"],"time":3.66} 
+[2021-08-23 15:59:04] production.DEBUG: update `assets` set `price` = ? where `id` = ? {"params":[37.4595,"6361"],"time":1.84} 
+[2021-08-23 15:59:04] production.DEBUG: insert into `trades` (`user_id`, `asset_id`, `transactiontype`, `volume`, `price_open`, `assettype`, `price_close`, `created_at`, `updated_at`) values (?, ?, ?, ?, ?, ?, ?, ?, ?) {"params":["20","6361","Received","1","38.42","Sell","38","2021-08-23 15:59:04","2021-08-23 15:59:04"],"time":2.73} 
+[2021-08-23 15:59:04] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.13} 
+[2021-08-23 15:59:04] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",20],"time":0.47} 
+[2021-08-23 15:59:04] production.DEBUG: select `wallets`.*, `assets`.`symbol` as `name`, `assets`.`price` as `current_value`, `assets`.`id` as `assets_id` from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) order by `id` desc limit 10 offset 0 {"params":["paid",20],"time":0.94} 
+[2021-08-23 15:59:04] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.32} 
+[2021-08-23 15:59:04] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",20],"time":0.49} 
+[2021-08-23 15:59:04] production.DEBUG: select `wallets`.*, `assets`.`symbol` as `name`, `assets`.`price` as `current_value`, `assets`.`id` as `assets_id` from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) order by `id` desc limit 10 offset 0 {"params":["paid",20],"time":0.58} 
+[2021-08-23 15:59:13] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":2.11} 
+[2021-08-23 15:59:13] production.DEBUG: insert into `user_request_point` (`user_id`, `name`, `email`, `status`, `fund_request`, `updated_at`, `created_at`) values (?, ?, ?, ?, ?, ?, ?) {"params":["20","test8","test8@gmail.com","Inactive","44",null,"2021-08-23 15:59:13"],"time":3.3} 
+[2021-08-23 15:59:13] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.22} 
+[2021-08-23 15:59:13] production.DEBUG: select count(*) as aggregate from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) {"params":["paid",20],"time":0.57} 
+[2021-08-23 15:59:13] production.DEBUG: select `wallets`.*, `assets`.`symbol` as `name`, `assets`.`price` as `current_value`, `assets`.`id` as `assets_id` from `wallets` inner join `assets` on `assets`.`id` = `wallets`.`asset_id` where (`wallets`.`status` = ? and `user_id` = ?) order by `id` desc limit 10 offset 0 {"params":["paid",20],"time":0.58} 
+[2021-08-23 15:59:18] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[20],"time":1.52} 
+[2021-08-23 15:59:18] production.DEBUG: update `users` set `remember_token` = ? where `id` = ? {"params":["QhmFP9Jrn4wZUtkMjsFIFCksQSYewJde2ccArEBE7wDqrKUYdJiv3SWE9zQa",20],"time":2.8} 
+[2021-08-23 15:59:18] production.DEBUG: select * from `trades` order by `trades`.`id` desc limit 5 {"params":[],"time":1.27} 
+[2021-08-23 15:59:18] production.DEBUG: select * from `assets` where `assets`.`id` in (6361) {"params":[],"time":0.34} 
+[2021-08-23 15:59:18] production.DEBUG: select * from `currencies` where 0 = 1 {"params":[],"time":0.2} 
+[2021-08-23 15:59:24] production.DEBUG: select * from `users` where `email` = ? and `status` = ? limit 1 {"params":["admin@malinator.com",0],"time":1.21} 
+[2021-08-23 15:59:25] production.DEBUG: update `users` set `last_login_time` = ?, `updated_at` = ? where `id` = ? {"params":["2021-08-23 15:59:25","2021-08-23 15:59:25",1],"time":3.1} 
+[2021-08-23 15:59:25] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.8} 
+[2021-08-23 15:59:25] production.DEBUG: select symbol, logo, COUNT(*) AS trades_count from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `assets`.`status` = ? group by `symbol`, `logo` order by `trades_count` desc, `symbol` asc limit 6 {"params":[0],"time":1.6} 
+[2021-08-23 15:59:25] production.DEBUG: select name from `assets` inner join `trades` on `assets`.`id` = `trades`.`asset_id` where `user_id` = ? order by `trades`.`id` desc limit 3 {"params":[1],"time":0.47} 
+[2021-08-23 15:59:25] production.DEBUG: select user_id, COUNT(*) AS profitable_trades from `trades` where `status` = ? and `pnl` > ? group by `user_id` order by `profitable_trades` desc limit 6 {"params":[1,0],"time":0.45} 
+[2021-08-23 15:59:25] production.DEBUG: select * from `trades` where `status` = ? and `pnl` > ? order by `pnl` desc limit 5 {"params":[1,0],"time":0.41} 
+[2021-08-23 15:59:29] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.61} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `users` {"params":[],"time":0.34} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `users` where `status` = ? {"params":[0],"time":0.27} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `users` where `status` = ? {"params":[1],"time":0.21} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `competitions` {"params":[],"time":0.28} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `competitions` where `status` = ? or `status` = ? {"params":[0,1],"time":0.3} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `competitions` where `status` = ? or `status` = ? {"params":[2,3],"time":0.27} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? {"params":[1],"time":0.27} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? and `pnl` > ? {"params":[1,0],"time":0.23} 
+[2021-08-23 15:59:29] production.DEBUG: select count(*) as aggregate from `trades` where `status` = ? and `pnl` <= ? {"params":[1,0],"time":0.24} 
+[2021-08-23 15:59:35] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.61} 
+[2021-08-23 15:59:35] production.DEBUG: select count(*) as aggregate from `assets` {"params":[],"time":0.34} 
+[2021-08-23 15:59:35] production.DEBUG: select `assets`.* from `assets` order by `symbol` asc limit 10 offset 0 {"params":[],"time":0.34} 
+[2021-08-23 15:59:35] production.DEBUG: select `id`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.3} 
+[2021-08-23 15:59:41] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.61} 
+[2021-08-23 15:59:41] production.DEBUG: select * from `currencies` {"params":[],"time":0.69} 
+[2021-08-23 15:59:41] production.DEBUG: select * from `markets` {"params":[],"time":0.27} 
+[2021-08-23 15:59:50] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.1} 
+[2021-08-23 15:59:50] production.DEBUG: select count(*) as aggregate from `assets` {"params":[],"time":0.27} 
+[2021-08-23 15:59:50] production.DEBUG: select `assets`.* from `assets` order by `symbol` asc limit 10 offset 0 {"params":[],"time":0.29} 
+[2021-08-23 15:59:50] production.DEBUG: select `id`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.2} 
+[2021-08-23 15:59:53] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.16} 
+[2021-08-23 15:59:53] production.DEBUG: select * from `assets` where `id` = ? limit 1 {"params":["6361"],"time":0.34} 
+[2021-08-23 15:59:53] production.DEBUG: select * from `currencies` {"params":[],"time":0.72} 
+[2021-08-23 15:59:53] production.DEBUG: select * from `markets` {"params":[],"time":0.59} 
+[2021-08-23 16:00:02] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.64} 
+[2021-08-23 16:00:02] production.DEBUG: select count(*) as aggregate from `assets` {"params":[],"time":0.33} 
+[2021-08-23 16:00:02] production.DEBUG: select `assets`.* from `assets` order by `symbol` asc limit 10 offset 0 {"params":[],"time":0.3} 
+[2021-08-23 16:00:02] production.DEBUG: select `id`, `symbol_native` from `currencies` where `currencies`.`id` in (1) {"params":[],"time":0.22} 
+[2021-08-23 16:00:13] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.31} 
+[2021-08-23 16:00:13] production.DEBUG: select count(*) as aggregate from `users` {"params":[],"time":0.38} 
+[2021-08-23 16:00:13] production.DEBUG: select * from `users` order by `id` desc limit 10 offset 0 {"params":[],"time":0.42} 
+[2021-08-23 16:00:13] production.DEBUG: select * from `social_profiles` where `social_profiles`.`user_id` in (1, 2, 3, 4, 5, 6, 7, 20, 21) {"params":[],"time":1.19} 
+[2021-08-23 16:00:40] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.28} 
+[2021-08-23 16:00:40] production.DEBUG: select count(*) as aggregate from `users` {"params":[],"time":0.42} 
+[2021-08-23 16:00:40] production.DEBUG: select * from `users` order by `id` desc limit 10 offset 0 {"params":[],"time":0.4} 
+[2021-08-23 16:00:40] production.DEBUG: select * from `social_profiles` where `social_profiles`.`user_id` in (1, 2, 3, 4, 5, 6, 7, 20, 21) {"params":[],"time":0.34} 
+[2021-08-23 16:00:44] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.91} 
+[2021-08-23 16:00:44] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":["21"],"time":0.46} 
+[2021-08-23 16:01:00] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.65} 
+[2021-08-23 16:01:00] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":["21"],"time":0.69} 
+[2021-08-23 16:01:06] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.35} 
+[2021-08-23 16:01:06] production.DEBUG: select count(*) as aggregate from `users` {"params":[],"time":0.38} 
+[2021-08-23 16:01:06] production.DEBUG: select * from `users` order by `id` desc limit 10 offset 0 {"params":[],"time":0.4} 
+[2021-08-23 16:01:06] production.DEBUG: select * from `social_profiles` where `social_profiles`.`user_id` in (1, 2, 3, 4, 5, 6, 7, 20, 21) {"params":[],"time":0.32} 
+[2021-08-23 16:01:13] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.52} 
+[2021-08-23 16:01:13] production.DEBUG: select `users`.*, `user_request_point`.`id` as `request_id`, `user_request_point`.`fund_request`, `user_request_point`.`release_fund`, `user_request_point`.`created_at`, `user_request_point`.`updated_at` as `last_request_point_update` from `users` inner join `user_request_point` on `user_request_point`.`user_id` = `users`.`id` where `users`.`status` = ? order by `user_request_point`.`id` desc {"params":["0"],"time":0.63} 
+[2021-08-23 16:01:41] production.DEBUG: select * from `users` where `id` = ? limit 1 {"params":[1],"time":1.88} 
+[2021-08-23 16:01:41] production.DEBUG: select `users`.*, `user_request_point`.`id` as `request_id`, `user_request_point`.`fund_request`, `user_request_point`.`release_fund`, `user_request_point`.`created_at`, `user_request_point`.`updated_at` as `last_request_point_update` from `users` inner join `user_request_point` on `user_request_point`.`user_id` = `users`.`id` where `users`.`status` = ? order by `user_request_point`.`id` desc {"params":["0"],"time":0.6} 

@@ -8,7 +8,7 @@
     <div class="ui one column stackable grid container">
         <div class="center aligned column">
             <a href="{{ route('backend.assets.create') }}" class="ui big {{ $settings->color }} button">
-                <i class="dollar icon"></i>
+                <i class="chart bar icon"></i>
                 {{ __('app.create_asset') }}
             </a>
         </div>
@@ -21,7 +21,7 @@
                 <table id="assets-table" class="ui selectable tablet stackable {{ $inverted }} table">
                     <thead>
                     <tr>
-                        @component('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order])
+                       <!--  @component('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order])
                             {{ __('app.id') }}
                         @endcomponent
                         @component('components.tables.sortable-column', ['id' => 'symbol', 'sort' => $sort, 'order' => $order])
@@ -30,9 +30,9 @@
                         @component('components.tables.sortable-column', ['id' => 'name', 'sort' => $sort, 'order' => $order])
                             {{ __('app.name') }}
                         @endcomponent
-                       <!--  @component('components.tables.sortable-column', ['id' => 'market', 'sort' => $sort, 'order' => $order])
+                        @component('components.tables.sortable-column', ['id' => 'market', 'sort' => $sort, 'order' => $order])
                         {{ __('app.market') }}
-                        @endcomponent -->
+                        @endcomponent
                         @component('components.tables.sortable-column', ['id' => 'price', 'sort' => $sort, 'order' => $order])
                             {{ __('app.price') }}
                         @endcomponent
@@ -44,7 +44,14 @@
                         @endcomponent
                         @component('components.tables.sortable-column', ['id' => 'status', 'sort' => $sort, 'order' => $order])
                             {{ __('app.status') }}
-                        @endcomponent
+                        @endcomponent -->
+                    <th style="color:#2185d0">ID</th>
+                    <th style="color:#2185d0"> Symbol</th>
+                    <th style="color:#2185d0">	Name</th>
+                    <th style="color:#2185d0">	Price</th>
+                    <th style="color:#2185d0">Change</th>
+                    <th style="color:#2185d0">	% Change</th> 
+                    <th style="color:#2185d0">	Status</th>
                         <th></th>
                     </tr>
                     </thead>

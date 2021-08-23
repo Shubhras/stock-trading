@@ -7,7 +7,7 @@
 
 <?php $__env->startSection('content'); ?>
     <div class="ui one column stackable grid container">
-        <div class="center aligned column">
+      <!--   <div class="center aligned column">
             <form method="POST" action="<?php echo e(route('backend.users.generate')); ?>">
                 <?php echo csrf_field(); ?>
                 <div class="ui action input">
@@ -15,12 +15,12 @@
                     <button class="ui <?php echo e($settings->color); ?> button"><?php echo e(__('app.create_bots')); ?></button>
                 </div>
             </form>
-        </div>
+        </div> -->
         <div class="column">
             <table class="ui selectable tablet stackable <?php echo e($inverted); ?> table">
                 <thead>
-                <tr>
-                    <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order]); ?>
+                <tr >
+                    <!-- <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order]); ?>
                         <?php echo e(__('users.id')); ?>
 
                     <?php echo $__env->renderComponent(); ?>
@@ -39,7 +39,13 @@
                     <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'last_login_time', 'sort' => $sort, 'order' => $order, 'class' => 'right aligned']); ?>
                         <?php echo e(__('users.last_login_time')); ?>
 
-                    <?php echo $__env->renderComponent(); ?>
+                    <?php echo $__env->renderComponent(); ?> -->
+
+                    <th style="color:#2185d0">ID</th>
+                    <th style="color:#2185d0">Name</th>
+                    <th style="color:#2185d0">Email</th>
+                    <th style="color:#2185d0">Status</th>
+                    <th style="color:#2185d0">Last Login</th>
                     <th></th>
                 </tr>
                 </thead>

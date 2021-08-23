@@ -37,7 +37,7 @@
                             <textarea type="text" name="message" placeholder="Message" value="{{ old('message') }}" required autofocus></textarea>
                         </div>
                     </div>
-                    <div class="field {{ $errors->has('market') ? 'error' : '' }}">
+                   <!--  <div class="field {{ $errors->has('market') ? 'error' : '' }}">
                         <label>{{ __('app.market') }}</label>
                         <div id="asset-market-dropdown" class="ui selection dropdown">
                             <input type="hidden" name="market">
@@ -49,7 +49,7 @@
                                 @endforeach
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="field {{ $errors->has('price') ? 'error' : '' }}">
                         <label>{{ __('app.price') }}</label>
                         <div class="ui input">

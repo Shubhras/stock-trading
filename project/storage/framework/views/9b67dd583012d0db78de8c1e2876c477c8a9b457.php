@@ -18,12 +18,12 @@
                     <thead>
                     <tr>
                       
-                        <th>Assets</th>
-                        <th>Buy/Sell</th>
-                        <th>Quantity</th>
-                        <th>Amount</th> 
-                        <th>Total Amount</th>
-                        <th>Date</th>
+                        <th style="color:#2185d0">Assets</th>
+                        <th style="color:#2185d0">Buy/Sell</th>
+                        <th style="color:#2185d0">Quantity</th>
+                        <th style="color:#2185d0">Amount</th> 
+                        <th style="color:#2185d0">Total Amount</th>
+                        <th style="color:#2185d0">Date</th>
                     </tr>
                     </thead>
                     <tbody>

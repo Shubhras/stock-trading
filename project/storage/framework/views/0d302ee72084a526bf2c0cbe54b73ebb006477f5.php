@@ -9,7 +9,7 @@
     <div class="ui one column stackable grid container">
         <div class="center aligned column">
             <a href="<?php echo e(route('backend.assets.create')); ?>" class="ui big <?php echo e($settings->color); ?> button">
-                <i class="dollar icon"></i>
+                <i class="chart bar icon"></i>
                 <?php echo e(__('app.create_asset')); ?>
 
             </a>
@@ -23,7 +23,7 @@
                 <table id="assets-table" class="ui selectable tablet stackable <?php echo e($inverted); ?> table">
                     <thead>
                     <tr>
-                        <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order]); ?>
+                       <!--  <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order]); ?>
                             <?php echo e(__('app.id')); ?>
 
                         <?php echo $__env->renderComponent(); ?>
@@ -35,10 +35,10 @@
                             <?php echo e(__('app.name')); ?>
 
                         <?php echo $__env->renderComponent(); ?>
-                       <!--  <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'market', 'sort' => $sort, 'order' => $order]); ?>
+                        <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'market', 'sort' => $sort, 'order' => $order]); ?>
                         <?php echo e(__('app.market')); ?>
 
-                        <?php echo $__env->renderComponent(); ?> -->
+                        <?php echo $__env->renderComponent(); ?>
                         <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'price', 'sort' => $sort, 'order' => $order]); ?>
                             <?php echo e(__('app.price')); ?>
 
@@ -54,7 +54,14 @@
                         <?php $__env->startComponent('components.tables.sortable-column', ['id' => 'status', 'sort' => $sort, 'order' => $order]); ?>
                             <?php echo e(__('app.status')); ?>
 
-                        <?php echo $__env->renderComponent(); ?>
+                        <?php echo $__env->renderComponent(); ?> -->
+                    <th style="color:#2185d0">ID</th>
+                    <th style="color:#2185d0"> Symbol</th>
+                    <th style="color:#2185d0">	Name</th>
+                    <th style="color:#2185d0">	Price</th>
+                    <th style="color:#2185d0">Change</th>
+                    <th style="color:#2185d0">	% Change</th> 
+                    <th style="color:#2185d0">	Status</th>
                         <th></th>
                     </tr>
                     </thead>

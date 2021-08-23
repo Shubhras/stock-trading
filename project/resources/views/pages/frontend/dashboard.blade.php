@@ -164,8 +164,8 @@
             @foreach($top_traded_assets->chunk(3) as $top_traded_assets_chunk)
             <div class="row">
                 @foreach($top_traded_assets_chunk as $asset)
-                <div class="center aligned column">
-                    <div class="ui {{ $inverted }} segment">
+                <div class="center aligned column" style="max-width: 144px;max-height:150px;">
+                    <div class="ui {{ $inverted }} segment " style="height:150px;width: 118px">
                         <div class="ui small {{ $inverted }} statistic">
                             <img class="ui tiny centered image" src="{{ $asset->logo_url }}">
                             <div class="">

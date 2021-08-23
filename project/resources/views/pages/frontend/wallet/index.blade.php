@@ -20,14 +20,14 @@ Wallet
             <thead>
                 <tr>
 
-                    <th>Transaction</th>
-                    <th>Transaction Type</th>
-                    <th>Quantity</th>
-                    <th>Cost</th>
+                    <th style="color:#2185d0">Transaction</th>
+                    <th style="color:#2185d0">Transaction Type</th>
+                    <th style="color:#2185d0">Quantity</th>
+                    <th style="color:#2185d0">Cost</th>
                     <!-- <th>Total Buy Cost</th> -->
-                    <th>Total Sell Cost</th>
-                    <th>% Gain / Loss</th>
-                    <th>Date</th>
+                    <th style="color:#2185d0">Total Sell Cost</th>
+                    <th style="color:#2185d0">% Gain / Loss</th>
+                    <th style="color:#2185d0">Date</th>
                     <!-- <th>Sell Assets</th> -->
                 </tr>
             </thead>

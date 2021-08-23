@@ -181,8 +181,8 @@
             <?php $__currentLoopData = $top_traded_assets->chunk(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $top_traded_assets_chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="row">
                 <?php $__currentLoopData = $top_traded_assets_chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $asset): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="center aligned column">
-                    <div class="ui <?php echo e($inverted); ?> segment">
+                <div class="center aligned column" style="max-width: 144px;max-height:150px;">
+                    <div class="ui <?php echo e($inverted); ?> segment " style="height:150px;width: 118px">
                         <div class="ui small <?php echo e($inverted); ?> statistic">
                             <img class="ui tiny centered image" src="<?php echo e($asset->logo_url); ?>">
                             <div class="">

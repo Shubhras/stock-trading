@@ -17,7 +17,7 @@
     -webkit-box-shadow: 0 0 0 1px #2185d0 inset!important;
     box-shadow: 0 0 0 1px #2185d0 inset!important;
     color: #5cb85c!important; */
-}
+/*}*/
 </style>
 <div class="ui one column stackable grid container">
 
@@ -25,7 +25,7 @@
         <table class="ui selectable tablet stackable {{ $inverted }} table">
             <thead>
                 <tr>
-                    @component('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order])
+                    <!-- @component('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order])
                     {{ __('users.id') }}
                     @endcomponent
                     @component('components.tables.sortable-column', ['id' => 'name', 'sort' => $sort, 'order' => $order])
@@ -47,8 +47,14 @@
 
                     @component('components.tables.sortable-column', ['id' => 'last_login_time', 'sort' => $sort, 'order' => $order])
                     {{ __('Point Request Date') }}
-                    @endcomponent
-
+                    @endcomponent -->
+                    <th style="color:#2185d0">ID</th>
+                    <th style="color:#2185d0">Name</th>
+                    <th style="color:#2185d0">Email</th>
+                    <th style="color:#2185d0">Status</th>
+                    <th style="color:#2185d0">Fund Request </th>
+                    <th style="color:#2185d0">Release Fund</th>
+                    <th style="color:#2185d0">Point Request Date</th>
                     <th></th>
                 </tr>
             </thead>
@@ -74,10 +80,10 @@
                         <td><?php echo $user->release_fund ?></td>
 
                         <td><?php echo $user->created_at ?></td>
-                        <?php $user_request =$user->request_id;?>
+                        <?php $user_request =$user->request_id ?>
                     
                         <td class="right aligned tablet-and-below-center">
-                            <a class="ui icon {{ $settings->color }} basic button" href="{{ route('backend.users_request_point.edit', $user_request,) }}">
+                            <a class="ui icon {{ $settings->color }} basic button" href="{{ route('backend.users_request_point.edit', $user_request) }}">
                                 <i class="edit icon"></i>
                                 Release fund    
                             </a>

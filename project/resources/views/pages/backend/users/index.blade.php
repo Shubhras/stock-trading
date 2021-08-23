@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="ui one column stackable grid container">
-        <div class="center aligned column">
+      <!--   <div class="center aligned column">
             <form method="POST" action="{{ route('backend.users.generate') }}">
                 @csrf
                 <div class="ui action input">
@@ -14,12 +14,12 @@
                     <button class="ui {{ $settings->color }} button">{{ __('app.create_bots') }}</button>
                 </div>
             </form>
-        </div>
+        </div> -->
         <div class="column">
             <table class="ui selectable tablet stackable {{ $inverted }} table">
                 <thead>
-                <tr>
-                    @component('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order])
+                <tr >
+                    <!-- @component('components.tables.sortable-column', ['id' => 'id', 'sort' => $sort, 'order' => $order])
                         {{ __('users.id') }}
                     @endcomponent
                     @component('components.tables.sortable-column', ['id' => 'name', 'sort' => $sort, 'order' => $order])
@@ -33,7 +33,13 @@
                     @endcomponent
                     @component('components.tables.sortable-column', ['id' => 'last_login_time', 'sort' => $sort, 'order' => $order, 'class' => 'right aligned'])
                         {{ __('users.last_login_time') }}
-                    @endcomponent
+                    @endcomponent -->
+
+                    <th style="color:#2185d0">ID</th>
+                    <th style="color:#2185d0">Name</th>
+                    <th style="color:#2185d0">Email</th>
+                    <th style="color:#2185d0">Status</th>
+                    <th style="color:#2185d0">Last Login</th>
                     <th></th>
                 </tr>
                 </thead>

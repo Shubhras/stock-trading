@@ -88,13 +88,13 @@
                             <input value="{{ $user->updated_at }} ({{ $user->updated_at->diffForHumans() }})" disabled="disabled">
                         </div>
                     </div>
-                    <div class="field">
+                   <!--  <div class="field">
                         <label>{{ __('users.email_verified_at') }}</label>
                         <div class="ui left icon input">
                             <i class="clock outline icon"></i>
                             <input value="{{ $user->email_verified_at ? $user->email_verified_at . ' (' . $user->email_verified_at->diffForHumans() . ')' : __('users.never') }}" disabled="disabled">
                         </div>
-                    </div>
+                    </div> -->
                     <button class="ui large {{ $settings->color }} submit icon button">
                         <i class="save icon"></i>
                         {{ __('users.save') }}

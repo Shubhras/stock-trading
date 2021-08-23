@@ -78,7 +78,7 @@
                     </a>
                 </h4>
             </div>
-          <!--   <div class="right aligned column">
+            <!--   <div class="right aligned column">
                 <locale-select :locales="{{ json_encode($locale->locales()) }}" :locale="{{ json_encode($locale->locale()) }}"></locale-select>
             </div> -->
         </div>
@@ -106,7 +106,7 @@
                         <i class="briefcase icon"></i>
                         <!-- {{ __('app.markets') }} -->My Assets
                     </a>
-                   <!--  <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
+                    <!--  <a href="{{ route('frontend.competitions.index') }}" class="item {{ strpos(Route::currentRouteName(),'frontend.competitions.')!==FALSE ? 'active' : '' }}">
                         <i class="trophy icon"></i>
                         {{ __('app.competitions') }}
                     </a>
@@ -144,12 +144,22 @@
                                     {{ __('users.profile') }}
                                 </a>
 
-                                @packageview('includes.frontend.header')
-
-                                <log-out-button token="{{ csrf_token() }}" class="item">
+<!--                                 @packageview('includes.frontend.header')
+ -->
+                               <!--  <log-out-button token="{{ csrf_token() }}" class="item">
                                     <i class="sign out alternate icon"></i>
                                     {{ __('auth.logout') }}
-                                </log-out-button>
+                                </log-out-button> -->
+
+                               
+
+                                    <form method="POST" action="/stock-trading/logout"><input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <a class="item">
+                                    <i class="sign out alternate icon"></i>
+                                        <input type="submit" style="border:0px;background-color:white" value="Log out" />
+                                        </a>
+                                    </form>
+                              
                             </div>
                         </div>
                     </div>
@@ -158,24 +168,24 @@
                 <!-- END Desktop menu -->
             </div>
 
-            </div>
+        </div>
     </div>
-            
+
     @if(auth()->user()->id !==1)
-    
 
-<div class="row">
-<div class="4" style="text-align: left;">
- <!-- <h4 href="#" style="margin-right: 108px;margin-top:10px; border:white" class="ui small basic blue icon submit nowrap">Wallet - Available Balance:</h4> -->
- <h3 class="ui blue header" style="margin-right: 108px;margin-top:10px;">Wallet - Available Balance: ${{ auth()->user()->wallet_balance }}</h3>
- </div>
 
-<div class="8" style="margin-inline-start: auto; margin-right: 26px;">
- <button href="#" style="margin-top:10px; float:right; " data-toggle="modal" data-target="#RequestPoint" class="ui small basic blue icon submit nowrap button">Request Points</button>
- </div>
- </div>
-@endif
-   
+    <div class="row">
+        <div class="4" style="text-align: left;">
+            <!-- <h4 href="#" style="margin-right: 108px;margin-top:10px; border:white" class="ui small basic blue icon submit nowrap">Wallet - Available Balance:</h4> -->
+            <h3 class="ui blue header" style="margin-right: 108px;margin-top:10px;">Wallet - Available Balance: ${{ auth()->user()->wallet_balance }}</h3>
+        </div>
+
+        <div class="8" style="margin-inline-start: auto; margin-right: 26px;">
+            <button href="#" style="margin-top:10px; float:right; " data-toggle="modal" data-target="#RequestPoint" class="ui small basic blue icon submit nowrap button">Request Points</button>
+        </div>
+    </div>
+    @endif
+
 </div>
 
 
@@ -198,8 +208,10 @@
                         <input type="hidden" name="name" class="form-control" value="{{ auth()->user()->name }}">
                         <input type="hidden" name="email" class="form-control" value="{{ auth()->user()->email }}">
                         <input type="hidden" name="status" class="form-control" value="Inactive">
+                        
+                       <!--  <input type="text" name="fund_request" class="form-control" style="width:200px;margin-left:140px" id="volume" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Please Enter Points"> -->
 
-                        <input type="number" name="fund_request" style="width:200px;margin-left:140px" class="form-control" aria-describedby="emailHelp" placeholder="Enter Points" required><br />
+                        <input type="text" name="fund_request" style="width:200px;margin-left:140px" class="form-control" aria-describedby="emailHelp" placeholder="Enter Points" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br />
                     </div>
                     <p style="text-align: center;">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -227,18 +239,15 @@
                 success: function(response) {
                     console.log(response)
                     $("#RequestPoint").modal('hide')
-                   // alert("Request Sent");
+                    // alert("Request Sent");
                     location.reload();
 
                 },
                 error: function(error) {
                     console.log(error)
-                   // alert("Request Not sent");
+                    // alert("Request Not sent");
                 }
             });
         });
     })
 </script>
-
-
-

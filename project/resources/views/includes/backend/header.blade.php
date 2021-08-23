@@ -5,13 +5,13 @@
         <i class="home icon"></i>
     </a>
     <div class="header item">{{ __('app.backend') }}</div>
-   <!--  <a href="{{ route('backend.dashboard') }}" class="item{{ Route::currentRouteName()=='backend.dashboard' ? ' active' : '' }}">
+    <!--  <a href="{{ route('backend.dashboard') }}" class="item{{ Route::currentRouteName()=='backend.dashboard' ? ' active' : '' }}">
         {{ __('app.dashboard') }}
         <i class="heartbeat icon"></i>
     </a> -->
     <a href="{{ route('backend.assets.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.assets.')!==FALSE ? ' active' : '' }}">
         {{ __('app.assets') }}
-        <i class="dollar icon"></i>
+        <i class="chart bar icon"></i>
     </a>
     <!-- <a href="{{ route('backend.competitions.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.competitions.')!==FALSE ? ' active' : '' }}">
         {{ __('app.competitions') }}
@@ -30,44 +30,52 @@
         {{ __('Users Request Point') }}
         <i class="users icon"></i>
     </a>
-    
-    @packageview('includes.backend.header')
 
+<!--     @packageview('includes.backend.header')
+ -->
     <!-- <a href="{{ route('backend.addons.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.addons.')!==FALSE ? ' active' : '' }}">
         {{ __('settings.addons') }}
         <i class="codepen icon"></i>
     </a> -->
-   <!--  <a href="{{ route('backend.settings.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.settings.')!==FALSE ? ' active' : '' }}">
+    <!--  <a href="{{ route('backend.settings.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.settings.')!==FALSE ? ' active' : '' }}">
         {{ __('settings.settings') }}
         <i class="settings icon"></i>
     </a> -->
-   <!--  <a href="{{ route('backend.maintenance.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.maintenance.')!==FALSE ? ' active' : '' }}">
+    <!--  <a href="{{ route('backend.maintenance.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.maintenance.')!==FALSE ? ' active' : '' }}">
         {{ __('maintenance.maintenance') }}
         <i class="server icon"></i>
     </a> -->
-   <!--  <a href="{{ route('backend.license.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.license.')!==FALSE ? ' active' : '' }}">
+    <!--  <a href="{{ route('backend.license.index') }}" class="item{{ strpos(Route::currentRouteName(),'backend.license.')!==FALSE ? ' active' : '' }}">
         {{ __('license.registration') }}
         <i class="copyright outline icon"></i>
     </a> -->
-    <log-out-button token="{{ csrf_token() }}" class="item">
+    <!-- <log-out-button token="{{ csrf_token() }}" class="item">
         {{ __('auth.logout') }}
         <i class="sign out alternate icon"></i>
-    </log-out-button>
+    </log-out-button> -->
+
+
+    <form method="POST" action="/logout"><input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <a class="item">
+            <i class="sign out alternate icon"></i>
+            <input type="submit" style="border:0px;background-color:white;width:85%;text-align:left" value="Log out" />
+        </a>
+    </form>
 </div>
 <div id="backend-menu" class="ui top fixed {{ $inverted }} menu">
     <div class="ui container">
         <a id="backend-sidebar-toggle" class="item"><i class="bars icon"></i></a>
         <span class="header item">
             <a href="{{ route('backend.dashboard') }}">{{ __('app.app_name') }}</a>
-            <span class="ui basic {{ $settings->color }} label">{{config('app.version') }}</span>
-        </span>
+<!--             <span class="ui basic {{ $settings->color }} label">{{config('app.version') }}</span>
+ -->        </span>
     </div>
 </div>
 
 @push('scripts')
-    <script>
-        $('#backend-sidebar')
-            .sidebar('setting', 'transition', 'overlay')
-            .sidebar('attach events', '#backend-sidebar-toggle');
-    </script>
+<script>
+    $('#backend-sidebar')
+        .sidebar('setting', 'transition', 'overlay')
+        .sidebar('attach events', '#backend-sidebar-toggle');
+</script>
 @endpush

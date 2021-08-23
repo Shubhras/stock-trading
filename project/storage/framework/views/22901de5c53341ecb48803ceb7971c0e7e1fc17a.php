@@ -35,16 +35,16 @@ My Assests
             <thead>
                 <tr>
 
-                    <th>Transaction</th>
+                    <th style="color:#2185d0">Transaction</th>
                     <!-- <th>Transaction Type</th> -->
-                    <th>Quantity</th>
-                    <th>Cost</th>
-                    <th>current Cost</th>
+                    <th style="color:#2185d0">Quantity</th>
+                    <th style="color:#2185d0">Cost</th>
+                    <th style="color:#2185d0">current Cost</th>
                     <!-- <th>Total Buy Cost</th> -->
                     <!-- <th>Total Sell Cost</th>
                     <th>% Gain / Loss</th> -->
-                    <th>Date</th>
-                    <th>Sell Assets</th>
+                    <th style="color:#2185d0">Date</th>
+                    <th style="color:#2185d0">Sell Assets</th>
                 </tr>
             </thead>
             <tbody>
