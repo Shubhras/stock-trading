@@ -30,7 +30,7 @@ Assets
     <div class="sixteen wide column">
         <assets-table :assets-list="{{ $assets->getCollection() }}" class="ui selectable {{ $inverted }} table">
             <template slot="header">
-                @component('components.tables.sortable-column', ['id' => 'symbol', 'sort' => $sort, 'order' => $order, 'query' => ['market' => $selected_market]])
+                <!-- @component('components.tables.sortable-column', ['id' => 'symbol', 'sort' => $sort, 'order' => $order, 'query' => ['market' => $selected_market]])
                 {{ __('app.name') }}
                 @endcomponent
                 @component('components.tables.sortable-column', ['id' => 'price', 'sort' => $sort, 'order' => $order, 'class' => 'right aligned', 'query' => ['market' => $selected_market]])
@@ -47,7 +47,13 @@ Assets
                 @endcomponent
                 @component('components.tables.sortable-column', ['id' => 'trades_count', 'sort' => $sort, 'order' => $order, 'class' => 'right aligned', 'query' => ['market' => $selected_market]])
                 {{ __('app.trades') }}
-                @endcomponent
+                @endcomponent -->
+                <th style="color:#2185d0">Name</th>
+                        <th style="color:#2185d0;text-align:right">Price	</th>
+                        <th style="color:#2185d0;text-align:right">Change</th>
+                        <th style="color:#2185d0;text-align:right">% Change</th> 
+                        <th style="color:#2185d0;text-align:right">View Details</th>
+                        <th style="color:#2185d0;text-align:right">Buy</th>
             </template>
         </assets-table>
     </div>
